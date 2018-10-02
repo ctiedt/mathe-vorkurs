@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Etwas Geometrie</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="https://notes.zortax.de/css/retro.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/contrib/auto-render.min.js"></script><script>document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body);
+  });</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="etwas-geometrie">Etwas Geometrie</h1>
+<h2 id="eukildische-geometrie">Eukildische Geometrie</h2>
+<p><strong>Euklid (ca. 300 v.Chr.)</strong>: Axiomatisierung der Geometrie</p>
+<p><span class="math inline">\(\mathcal{E}\)</span>: Ebene, Menge von Punkten <span class="math inline">\(A, B, C.. \in \mathcal{E}\)</span></p>
+<p><span class="math inline">\(\mathcal{G}\)</span>: Menge der Geraden <span class="math inline">\(g, h \subseteq \mathcal{E}\)</span>, <span class="math inline">\(\mathcal{G} \subseteq \mathcal{P}(\mathcal{E})\)</span></p>
+<p><span class="math inline">\((\mathcal{E}, \mathcal{G}, \in) \quad A \in g\)</span>: “Punkt A liegt auf der Geraden g”, <span class="math inline">\(g(A) \iff A \in g\)</span></p>
+<h3 id="axiom-1">Axiom 1</h3>
+<p>Zu je zwei verschiedenen Punkten <span class="math inline">\(A, B\)</span> gibt es genau eine Gerade <span class="math inline">\(g\)</span> mit <span class="math inline">\(g(A) \land g(B)\)</span></p>
+<h3 id="axiom-2">Axiom 2</h3>
+<p>Jede Gerade enthält mindestens zwei Punkte.</p>
+<h3 id="axiom-3">Axiom 3</h3>
+<p>Es gibt drei Punkte <span class="math inline">\(A, B, C\)</span>, die nicht alle auf einer Geraden liegen.<br />
+<span class="math inline">\(\implies\)</span> Es gibt ein Dreieck <span class="math inline">\(ABC\)</span></p>
+<blockquote>
+<p><strong>Satz</strong>: <span class="math inline">\(g, h \in \mathcal{G}, g \neq h \implies |g \cap h| \leq 1\)</span></p>
+</blockquote>
+<hr />
+<blockquote>
+<p><strong>Definition</strong>: <span class="math inline">\(g, h \in \mathcal{G}, g || h :\iff g = h \lor g \cap h = \emptyset\)</span></p>
+</blockquote>
+<h3 id="parallelenaxiom">Parallelenaxiom</h3>
+<p>Sei <span class="math inline">\(g \in \mathcal{G}, c \in \mathcal{E}\)</span>Dann gibt es genau eine Gerade <span class="math inline">\(h \in \mathcal{G}\)</span> mit <span class="math inline">\(h(c)\)</span> und <span class="math inline">\(h||g\)</span></p>
+<h2 id="heutige-geometrische-axiomsysteme">Heutige geometrische Axiomsysteme</h2>
+<p>David Hilbert:</p>
+<ul>
+<li>Zwischenrelation <span class="math inline">\(Zw(A, B, C)\)</span> (B liegt zwischen A und C)</li>
+<li>Kongruenzrelation</li>
+</ul>
+<p>Kolmogorov:</p>
+<ul>
+<li>Abstand <span class="math inline">\(d: \mathcal{E} \times \mathcal{E} \to \mathbb{R}^+_0, (A, B) \mapsto d(A, B)\)</span></li>
+</ul>
+<p><span class="math inline">\(\overline{AB} := \{A, B\} \cup \{C | Zw(A, C, B)\}, \quad |\overline{AB}|=d(A, B)\)</span></p>
+<blockquote>
+<p><strong>Definition</strong>: Eine Bewegung ist eine bijektive Funktion <span class="math inline">\(f: \mathcal{E} \to \mathcal{E}\)</span> mit der Eigenschaft <span class="math inline">\((\forall A, B \in \mathcal{E}) (d(f(A), f(B)) = d(A, B))\)</span></p>
+<p>Spezialfälle:</p>
+<ul>
+<li>Verschiebung (Translation)</li>
+<li>Drehung um einen Punkt</li>
+<li>Spiegelung an einer Geraden g</li>
+</ul>
+<p>Aus diesen kann man alle Bewegungen durch Verkettung erhalten.</p>
+</blockquote>
+<hr />
+<blockquote>
+<p>Bewegungsaxiom: Zu <span class="math inline">\(A, B, C, D\)</span> mit <span class="math inline">\(d(A, B)=d(C, D)\)</span> gibt es genau zwei Bewegungen <span class="math inline">\(f\)</span> mit <span class="math inline">\(f(A)=C\)</span> und <span class="math inline">\(f(B)=D\)</span>.</p>
+</blockquote>
+<hr />
+<blockquote>
+<p><strong>Definition</strong>: <span class="math inline">\(P, Q\)</span> seien Punktmengenn, <span class="math inline">\(P, Q \in \mathcal{E}\)</span>. P und Q heißen <em>kongruent</em>, wenn es eine Bewegung f gibt mit <span class="math inline">\(f(P)=Q\)</span>.</p>
+</blockquote>
+<h3 id="winkel">Winkel</h3>
+<p>Zwei Halbgeraden, die im selben Punkt beginnen.</p>
+<h3 id="bogenmaß">Bogenmaß</h3>
+<p>Ein Kreisbogen um einen Winkel hat bei einem Radius <span class="math inline">\(r\)</span> eine bestimmte Länge <span class="math inline">\(l(r)\)</span>. Das Bogenmaß ist <span class="math inline">\(\frac{l(r)}{r}\)</span>, oder die Kreisbogenlänge im Einheitskreis.</p>
+<h3 id="gradmaß">Gradmaß</h3>
+<p><span class="math inline">\(1^o = \frac{\pi}{180}\)</span></p>
+<h3 id="orientierung">Orientierung</h3>
+<p>Mathematisch positiv ist die Drehung <em>gegen</em> den Uhrzeigersinn.</p>
+<h2 id="dreieck">DREIECK</h2>
+<p><span class="math inline">\(Doppelfunktion \begin{cases} a, b, c \\ \alpha, \beta, \gamma \end{cases}\)</span></p>
+<p><strong>Oft</strong>: Bezeichnung der spezifischen Strecke bzw. des Winkels \ <strong>Meist</strong>: Bezeichnung des <em>Betrags</em> von Strecke oder Winkel</p>
+<table>
+<thead>
+<tr class="header">
+<th>Kongruenzsaetze</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>SWS</td>
+</tr>
+<tr class="even">
+<td>SSS</td>
+</tr>
+<tr class="odd">
+<td>WSW</td>
+</tr>
+<tr class="even">
+<td>SSW (mit Einschraenkung)</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

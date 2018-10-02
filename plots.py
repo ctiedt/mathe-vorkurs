@@ -31,6 +31,12 @@ def draw_function(interval=[-10, 10], f = lambda x: x, title_="", accuracy = 0.0
     ax.grid()
     fig.savefig(fn, facecolor=fig.get_facecolor(), transparent=True)
 
+def table(rows):
+    print("| " + " | ".join(rows[0]) + " |")
+    print("| - " * len(rows[0]) + " |")
+    for row in rows[1:]:
+        print("| " + " | ".join(row) + " |")
+
 def zeta(x):
         return sum(1/(n**x) for n in range(1, 1000))
 

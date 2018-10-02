@@ -757,10 +757,8 @@ $x^2 + px + q < 0$
 ```python-exec
 import plots
 
-plots.draw_function(f=lambda x: x**2 + 3*x + -2, fn="./html/quadratische ungleichung.png")
+plots.draw_function(f=lambda x: x**2 + 3*x + -6, fn="./html/quadratische ungleichung.png")
 print("![Quadratische Ungleichung](quadratische ungleichung.png)")
 ```
 
 Die Lösungen befinden sich zwischen den Nullstellen, wenn die Funktion dort negative Werte annimmt.
-
-Irgendein Text

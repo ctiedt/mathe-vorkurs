@@ -90,8 +90,9 @@ a, b, c \\
 **Oft**: Bezeichnung der spezifischen Strecke bzw. des Winkels \\
 **Meist**: Bezeichnung des _Betrags_ von Strecke oder Winkel
 
-```python-exec
-import plots
-
-plots.table([("Kongruenzsaetze", ), ("SWS", ), ("SSS", ), ("WSW", ), ("SSW (mit Einschraenkung)", )])
-```
+| Kongruenzsaetze |
+| -  |
+| SWS |
+| SSS |
+| WSW |
+| SSW (mit Einschraenkung) |
