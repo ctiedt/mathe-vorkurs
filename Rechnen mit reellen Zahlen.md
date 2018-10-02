@@ -762,3 +762,5 @@ print("![Quadratische Ungleichung](quadratische ungleichung.png)")
 ```
 
 Die Lösungen befinden sich zwischen den Nullstellen, wenn die Funktion dort negative Werte annimmt.
+
+Irgendein Text
