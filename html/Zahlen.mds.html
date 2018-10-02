@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Zahlen</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="./html/retro.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/contrib/auto-render.min.js"></script><script>document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body);
+  });</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="natürliche-und-ganze-zahlen-20.09.2018">Natürliche und ganze Zahlen (20.09.2018)</h1>
+<h2 id="natürliche-zahlen">Natürliche Zahlen</h2>
+<p>Undendliche Menge; Unendlichkeitsaxiom<br />
+<span class="math inline">\(\mathbb{N} := \{0, 1, 2, 3, ...\}\)</span><br />
+<span class="math inline">\(\mathbb{N}^+ := \mathbb{N} \setminus\{0\}\)</span></p>
+<p><strong>Peano’sche Axiome</strong><br />
+Die “Struktur” der natürlichen Zahlen wird durch eine <em>Nachfolgerfunktion</em> beschrieben.</p>
+<ul>
+<li><span class="math inline">\(0 \in \mathbb{N}\)</span></li>
+<li><span class="math inline">\(S: \mathbb{N} \to \mathbb{N}\)</span></li>
+<li><span class="math inline">\(S\)</span> ist injektiv</li>
+<li><span class="math inline">\(0 \notin Bild(S)\)</span></li>
+</ul>
+<blockquote>
+<p><strong>Induktionsaxiom</strong>: <span class="math inline">\((\forall A \subseteq \mathbb{N})(0 \in A \land \forall n \in \mathbb{N})(n \in A \implies S(n) \in A) \implies A = \mathbb{N}\)</span></p>
+</blockquote>
+<h3 id="beweise-durch-induktion-beispiel">Beweise durch Induktion (Beispiel)</h3>
+<p>Es ist zu beweisen, dass eine Eigenschaft E auf alle natürlichen Zahlen zutrifft.</p>
+<p><span class="math inline">\(A = \{n \in \mathbb{N} | E(n) \}\)</span></p>
+<p>Zu zeigen:</p>
+<ul>
+<li>Anfang: <span class="math inline">\(0 \in A \iff E(0)\)</span></li>
+<li>Induktionsvoraussetzung: <span class="math inline">\((\exists n \in \mathbb{N})\)</span></li>
+<li>Induktionsbeweis: <span class="math inline">\(E(n) \implies E(S(n))\)</span></li>
+</ul>
+<blockquote>
+<p><abbr title="Rekursive Defintion"><strong>ADDITION (+)</strong></abbr>: - Sei <span class="math inline">\(m \in \mathbb{N}\)</span>, <span class="math inline">\(m\)</span> fest - <span class="math inline">\(m + 0 = m\)</span> - <span class="math inline">\(m + S(n) = S(m+n)\)</span></p>
+<p><span class="math inline">\(S(n) \equiv n + 1\)</span></p>
+<p>Beispiel: <span class="math inline">\(3 + 2 = 3 + S(1) = S(3 + 1) = S(3 + S(0)) = S(S(3)) = S(4) = 5\)</span></p>
+</blockquote>
+<hr />
+<blockquote>
+<p><strong>Multiplikation ( <span class="math inline">\(\cdot\)</span> )</strong> - <span class="math inline">\(m \cdot 0 := 0\)</span> - <span class="math inline">\(m \cdot n := m \cdot S(n) + m\)</span></p>
+</blockquote>
+<p>Wir wollen zeigen:<br />
+<span class="math inline">\(E(n) = \sum_{i=0}^n i=\frac{n(n+1)}{2}\)</span></p>
+<ul>
+<li><em>A</em>: <span class="math inline">\(n=0\)</span>, <span class="math inline">\(0 = \frac{0(0+1)}{2} \checkmark\)</span></li>
+<li><em>V</em>: Sei <span class="math inline">\(n \in \mathbb{N}\)</span>, es sei <span class="math inline">\(0+1+2+...+n=\frac{n(n+1)}{2}\)</span></li>
+<li><em>B</em>: Zu zeigen: Dann gilt auch <span class="math inline">\(E(n+1)\)</span>
+<ul>
+<li><span class="math inline">\(0+1+2+...+n+(n+1)=(0+1+2+...+n)+(n+1)=\frac{n(n+1)}{2}+(n+1)=(n+1) \cdot (\frac{n}{2}+1)=(n+1) \cdot \frac{(n+2)}{2}\)</span></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Eine Menge <span class="math inline">\(A\)</span> heißt <em>abzählbar</em>, wenn <span class="math inline">\(A \sim \mathbb{N}\)</span><br />
+Beispiel: <span class="math inline">\(G = \{n \in \mathbb{N} | (\exists m \in \mathbb{N})(n=2m)\}\)</span>, <span class="math inline">\(\mathbb{N} \sim G\)</span><br />
+<span class="math inline">\(\mathbb{Q}, (\mathbb{Q} \sim \mathbb{N}\}\)</span></p>
+</blockquote>
+<hr />
+<h2 id="positionssysteme">Positionssysteme</h2>
+<ul>
+<li>Römische Zahlen: <span class="math inline">\(I, II, III, IV, V, VI...\)</span> (additives System mit Abkürzungen)</li>
+<li>Arabische Ziffern: <span class="math inline">\(0, 1, 2, ..., 9, 10, 11, ...\)</span></li>
+<li>Binär/Dual: <span class="math inline">\(0, 1, 10, 11, 100...\)</span></li>
+</ul>
+<p>Basis <span class="math inline">\(B \in \mathbb{N}, \geq 2\)</span><br />
+Ziffern: <span class="math inline">\(0, 1, 2, ..., B-1\)</span>, jede Ziffer <em>ein</em> Zeichen<br />
+Notation: <span class="math inline">\(z = {a_{n-1}a_{n-2}...a_0}_{(B)}\)</span><br />
+<span class="math inline">\(z = a_{n-1}B^{n-1}+a_{n-2}B^{n-2}+a_{n-3}B^{n-3}+...+a_{1}B^{1}+a_0\)</span></p>
+<h3 id="umrechnung-in-andere-positionssysteme">Umrechnung in andere Positionssysteme</h3>
+<p><span class="math inline">\(z=629_{(10)} \rightarrow B=2\)</span></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">z <span class="op">=</span> <span class="dv">629</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">b <span class="op">=</span> <span class="st">&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="cf">while</span> z <span class="op">!=</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">    b <span class="op">=</span> (z <span class="op">%</span> <span class="dv">2</span>) <span class="op">+</span> b</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">    z <span class="op">=</span> b <span class="op">//</span> <span class="dv">2</span></a></code></pre></div>
+<p><span class="math inline">\(z=629_{(10)} = 1001110101_{(2)} = 275_{(16)}\)</span></p>
+<h3 id="horner-schema">Horner-Schema</h3>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(a_{(n-1)}\)</span></th>
+<th><span class="math inline">\(a_{(n-2)}\)</span></th>
+<th>…</th>
+<th><span class="math inline">\(a_1\)</span></th>
+<th><span class="math inline">\(a_0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td><span class="math inline">\(a_{(n-1)}B\)</span></td>
+<td>…</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(a_{(n-1)}\)</span></td>
+<td><span class="math inline">\(a_{(n-1)}B+a_{n-2}\)</span></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th>1</th>
+<th>0</th>
+<th>0</th>
+<th>1</th>
+<th>1</th>
+<th>1</th>
+<th>0</th>
+<th>1</th>
+<th>0</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>2</td>
+<td>4</td>
+<td>8</td>
+<td>18</td>
+<td>38</td>
+<td>78</td>
+<td>156</td>
+<td>314</td>
+<td>628</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>2</td>
+<td>4</td>
+<td>9</td>
+<td>19</td>
+<td>39</td>
+<td>79</td>
+<td>157</td>
+<td>314</td>
+<td><span class="math inline">\(629_{(10)}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline">\(34591_{(10)} \rightarrow B=2, B=16\)</span></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="dv">34591</span> <span class="op">//</span> <span class="dv">2</span> <span class="op">=</span> <span class="dv">17295</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="dv">17295</span> <span class="op">//</span> <span class="dv">2</span> <span class="op">=</span> <span class="dv">8647</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="dv">8647</span> <span class="op">//</span> <span class="dv">2</span> <span class="op">=</span> <span class="dv">4323</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="dv">4323</span> <span class="op">//</span> <span class="dv">2</span> <span class="op">=</span> <span class="dv">2161</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="dv">2161</span> <span class="op">//</span> <span class="dv">2</span> <span class="op">=</span> <span class="dv">1080</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="dv">1080</span> <span class="op">//</span> <span class="dv">2</span> <span class="op">=</span> <span class="dv">540</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="dv">540</span> <span class="op">//</span> <span class="dv">2</span> <span class="op">=</span> <span class="dv">270</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="dv">270</span> <span class="op">//</span> <span class="dv">2</span> <span class="op">=</span> <span class="dv">135</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="dv">135</span> <span class="op">//</span> <span class="dv">2</span> <span class="op">=</span> <span class="dv">67</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="dv">67</span> <span class="op">//</span> <span class="dv">2</span> <span class="op">=</span> <span class="dv">33</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="dv">33</span> <span class="op">//</span> <span class="dv">2</span> <span class="op">=</span> <span class="dv">16</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="dv">16</span> <span class="op">//</span> <span class="dv">2</span> <span class="op">=</span> <span class="dv">8</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="dv">8</span> <span class="op">//</span> <span class="dv">2</span> <span class="op">=</span> <span class="dv">4</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="dv">4</span> <span class="op">//</span> <span class="dv">2</span> <span class="op">=</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="dv">2</span> <span class="op">//</span> <span class="dv">2</span> <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="dv">1</span> <span class="op">//</span> <span class="dv">2</span> <span class="op">=</span> <span class="dv">0</span></a></code></pre></div>
+<p><span class="math inline">\(34591_{(10)} = 1000 0111 0001 1111_{(2)}\)</span></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="dv">34591</span> <span class="op">//</span> <span class="dv">16</span> <span class="op">=</span> <span class="dv">2161</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="dv">2161</span> <span class="op">//</span> <span class="dv">16</span> <span class="op">=</span> <span class="dv">135</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="dv">135</span> <span class="op">//</span> <span class="dv">16</span> <span class="op">=</span> <span class="dv">8</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="dv">8</span> <span class="op">//</span> <span class="dv">16</span> <span class="op">=</span> <span class="dv">0</span></a></code></pre></div>
+<p><span class="math inline">\(34591_{(10)} = 871F_{(16)}\)</span></p>
+<p><span class="math inline">\(1210121_{(3)} \rightarrow B=10\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th>1</th>
+<th>2</th>
+<th>1</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline">\(1210121_{(3)} = 1312_{(10)}\)</span></p>
+<p><span class="math inline">\(AFFE_{(16)} \rightarrow B=10\)</span></p>
+<p><span class="math inline">\(AFFE_{(16)} = 45054_{(10)}\)</span></p>
+<h2 id="ganze-zahlen">Ganze Zahlen</h2>
+<p><em>Motivation</em>: In <span class="math inline">\(\mathbb{N}\)</span> ist die Gleichung <span class="math inline">\(x+1=0\)</span> nicht lösbar.<br />
+Idee: Wir nehmen die Lösungen <span class="math inline">\(x + n = 0\)</span> hinzu.<br />
+<span class="math inline">\(x = -n\)</span> (Gegenzahl, Ausnahme <span class="math inline">\(0 = -0\)</span>)</p>
+<p><span class="math inline">\(\mathbb{Z} := \{0, 1, -1, 2, -2, 3, -3, ...\}\)</span><br />
+Erweiterung der Operationen + und <span class="math inline">\(\cdot\)</span> auf <span class="math inline">\(\mathbb{Z}\)</span> (Fortsetzung)<br />
+Neue Operation: Subtraktion ( - )<br />
+Lineare Ordnung <span class="math inline">\(&lt;\)</span> bzw <span class="math inline">\(\leq\)</span>: <span class="math inline">\(...-3&lt;-2&lt;-1&lt;0&lt;1&lt;2&lt;3...\)</span></p>
+<p><span class="math inline">\((\forall a, b, c \in \mathbb{Z})\)</span><br />
+<span class="math inline">\((a \leq b \land b \leq c \implies a \leq c)\)</span><br />
+<span class="math inline">\((a \leq b \land b \leq a \implies a = b)\)</span><br />
+<span class="math inline">\((a \leq a&#39; \land b \leq b&#39; \implies a + b \leq a&#39; + b&#39;)\)</span><br />
+<span class="math inline">\((0 \leq a \leq a&#39; \land 0 \leq b \leq b&#39; \implies a \cdot b \leq a&#39; \cdot b&#39;)\)</span><br />
+<span class="math inline">\((0 &lt; a \land b &lt; 0 \implies ab &lt; 0)\)</span><br />
+<span class="math inline">\((a &lt; 0 \land 0 &lt; b \implies ab &lt; 0)\)</span><br />
+<span class="math inline">\((a \cdot b = 0 \implies a=0 \lor b=0)\)</span></p>
+<p>Betrag: <span class="math inline">\(|a| := \begin{cases}a \impliedby a \geq 0 \\ -a \impliedby a &lt; 0\end{cases}\)</span></p>
+<blockquote>
+<p><strong>Satz von der Division mit Rest</strong>: Seien <span class="math inline">\(a, m \in \mathbb{Z}\)</span> und <span class="math inline">\(m \geq 1\)</span>. Dann gibt es ganze Zahlen <span class="math inline">\(q, r \in \mathbb{Z}\)</span> mit <span class="math inline">\(a = q \cdot m + r\)</span> und <span class="math inline">\(0 \leq r &lt; m\)</span></p>
+<p>Beispiel: <span class="math inline">\(a=16, m=3\)</span> <span class="math inline">\(a = 5 \cdot 3 + 1\)</span>; <span class="math inline">\(q = 5, r = 1\)</span></p>
+</blockquote>
+<hr />
+<h3 id="teiler">Teiler</h3>
+<p><span class="math inline">\(a, b \in \mathbb{Z}\)</span>, a Teiler von b, bzw. b Vielfaches von a (geschrieben <span class="math inline">\(a|b\)</span>), wenn:<br />
+<span class="math inline">\(a|b \iff (\exists c \in \mathbb{Z}) a \cdot c = b\)</span><br />
+Falls <span class="math inline">\(a \geq 1\)</span>: Der Rest bei der Division von b durch a ist <span class="math inline">\(0\)</span>.<br />
+<span class="math inline">\(b = 0 \implies b = 0 = 0 \cdot a\)</span> für alle <span class="math inline">\(a \in \mathbb{Z}\)</span><br />
+<span class="math inline">\((\forall a \in \mathbb{Z})(a|0)\)</span><br />
+<span class="math inline">\(a = 0, a|b \implies b = 0\)</span></p>
+<p><span class="math inline">\((\forall a \in \mathbb{Z}) a|a\)</span><br />
+<span class="math inline">\(a|b \land b|c \implies a|c\)</span></p>
+<p><span class="math inline">\(a|b \land b|a \iff (a=b) \lor (a=-b)\)</span><br />
+<span class="math inline">\(a|b \land b|a \iff a|(-b)\)</span><br />
+<span class="math inline">\(a|b \land b|a \iff (-a)|b\)</span><br />
+<span class="math inline">\(a|b \land b|a \iff (-a)|(-b)\)</span></p>
+<p><span class="math inline">\(a, b \geq 1 , a|b \implies a \leq b\)</span><br />
+<span class="math inline">\((\forall z, z&#39; \in \mathbb{Z})(\forall b&#39; \in \mathbb{Z})(a|b \land a|b&#39; \implies a|z \cdot b + z&#39; \cdot b&#39;\)</span><br />
+</p>
+<p>Sei <span class="math inline">\(b \in \mathbb{Z}\)</span>. Dann hat b immer folgende Teiler: <span class="math inline">\(1, (-1), b, (-b)\)</span> (“Triviale Teiler”)</p>
+<p><span class="math inline">\(p \in \mathbb{Z}\)</span> heißt <em>Primzahl</em>, wenn <span class="math inline">\(p \geq 2\)</span> und p nur triviale Teiler hat.<br />
+<span class="math inline">\(Primzahl(p) \iff p \geq 2 \land (\forall a \in \mathbb{Z})(a|p \implies (a=1 \lor a=p \lor a=-1 \lor a=-p)\)</span></p>
+<blockquote>
+<p><strong>Hilfssatz</strong>: Sei <span class="math inline">\(b \in \mathbb{Z}\)</span>, <span class="math inline">\(|b| \geq 2\)</span>. p sei der kleinste Teiler von b mit <span class="math inline">\(p \geq 2\)</span>. Dann ist p Primzahl. Insbesondere hat jede ganze Zahl b mit <span class="math inline">\(|b| \geq 2\)</span> mindestens einen Primteiler.</p>
+<p><strong>Beweis</strong>: Es gibt Teiler von b, die <span class="math inline">\(\geq 2\)</span> sind, z.B. <span class="math inline">\(|b|\)</span>. Daher existiert auch ein kleinster Teiler <span class="math inline">\(p|b\)</span> mit <span class="math inline">\(p \geq 2\)</span>.<br />
+Angenommen, p ist keine Primzahl, muss es einen nichttrivialen, positiven Teiler <span class="math inline">\(a|p\)</span> mit <span class="math inline">\(a \neq 1 \land a \neq p\)</span> geben. Also <span class="math inline">\(2 \leq a &lt; p\)</span>. Aus <span class="math inline">\(a|b\)</span> und <span class="math inline">\(p|b\)</span> folgt <span class="math inline">\(a|b\)</span>. Somit gibt es einen Teiler a von b mit <span class="math inline">\(2 \leq a\)</span> und <span class="math inline">\(a \leq p\)</span>. ⚡ zur Wahl von p. Daher ist p Primzahl.</p>
+<p><strong>Satz (Euklid)</strong>: Es gibt unendlich viele Primzahlen.<br />
+<strong>Beweis</strong>: Annahme - Es gibt nur endlich viele Primzahlen.<br />
+n sei die Anzahl dieser (aller) Primzahlen und <span class="math inline">\(p_1, p_2, p_3, ..., p_n\)</span> seien diese Primzahlen.<br />
+b sei <span class="math inline">\(p_1 \cdot p_2 \cdot p_3 \cdot ... \cdot p_n+1\)</span>. Dann ist <span class="math inline">\(b \geq 2\)</span> und hat nach dem Hilfssatz mindestens einen Primteiler q. Falls <span class="math inline">\(b=q\)</span>, so ⚡, weil <span class="math inline">\(q &gt; p_i\)</span> für <span class="math inline">\((i=1...n)\)</span><br />
+Falls <span class="math inline">\(q &lt; b\)</span>, so muss je <span class="math inline">\(q = p_i\)</span> für ein <span class="math inline">\(i \in \{1, ..., n\}\)</span>.<br />
+Aber: <span class="math inline">\(\lnot p_i|b\)</span> für alle <span class="math inline">\(i=1, ..., n\)</span>, denn bei der Division durch <span class="math inline">\(p_i\)</span> bleibt stets der Rest 1. ⚡. Also Annahme falsch.</p>
+</blockquote>
+<hr />
+<blockquote>
+<p><strong>Fundamentalsatz der Arithmetik</strong>: Jede ganze Zahl <span class="math inline">\(b \geq 2\)</span> hat eine Darstellung als Produkt von Primzahlpotenzen. <span class="math inline">\(b = p{_1}^{k_1} \cdot p{_2}^{k_2} \cdot ... \cdot p{_n}^{k_n}\)</span>. Diese Darstellung ist bis auf die Reihenfolge eindeutig.</p>
+<p>Sei <span class="math inline">\(b \geq 2\)</span>. Wenn b keine Primzahl ist, dann gibt es einen Primteiler q mit <span class="math inline">\(q \leq \sqrt{b}\)</span>.</p>
+</blockquote>
+<h4 id="teilbarkeitsregeln">Teilbarkeitsregeln</h4>
+<table>
+<colgroup>
+<col style="width: 54%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Teiler</th>
+<th>Regel</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2</td>
+<td>Wenn die letzte Ziffer durch 2 teilbar ist</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Wenn die Quersumme durch 3 teilbar ist</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>Wenn die letzten zwei Ziffern durch 4 teilbar sind</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>Wenn die letzte Ziffer <span class="math inline">\(\in \{0, 5\}\)</span> ist</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>Wenn die Zahl durch 2 und 3 teilbar ist</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>Wenn <span class="math inline">\(a_{n-1}a_{n-2}...a_2a_1 - 2a_0\)</span> duch 7 teilbar ist</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>Wenn die letzten drei Ziffern durch 8 teilbar sind</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>Wenn die Quersumme durch 9 teilbar ist</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>Wenn die letzte Ziffer eine 0 ist</td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td>Alternierende Quersummer <span class="math inline">\(a_0 - a_1 + a_2 - ... \pm a_{n-2} \pm a_{n-1}\)</span> durch 11 teilbar</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">def</span> smallest_prime_divisor(x):</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>, x<span class="op">+</span><span class="dv">1</span>):</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">        <span class="cf">if</span> x <span class="op">%</span> i <span class="op">==</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">            <span class="cf">if</span> x <span class="op">==</span> i:</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">                <span class="cf">return</span> x</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">            <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">                <span class="cf">return</span> smallest_prime_divisor(i)</a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="kw">def</span> factorise(z):</a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">    f <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb4-11" data-line-number="11">    <span class="cf">while</span> z <span class="op">&gt;</span> <span class="dv">2</span>:</a>
+<a class="sourceLine" id="cb4-12" data-line-number="12">        p <span class="op">=</span> smallest_prime_divisor(z)</a>
+<a class="sourceLine" id="cb4-13" data-line-number="13">        f.append(p)</a>
+<a class="sourceLine" id="cb4-14" data-line-number="14">        z <span class="op">=</span> <span class="bu">int</span>(z<span class="op">/</span>p)</a>
+<a class="sourceLine" id="cb4-15" data-line-number="15">    <span class="cf">return</span> f</a>
+<a class="sourceLine" id="cb4-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb4-17" data-line-number="17">z <span class="op">=</span> <span class="dv">15135120</span></a>
+<a class="sourceLine" id="cb4-18" data-line-number="18">div <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb4-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="cf">while</span> z <span class="op">&gt;</span> <span class="dv">2</span>:</a>
+<a class="sourceLine" id="cb4-21" data-line-number="21">    p <span class="op">=</span> smallest_prime_divisor(z)</a>
+<a class="sourceLine" id="cb4-22" data-line-number="22">    div.append(p)</a>
+<a class="sourceLine" id="cb4-23" data-line-number="23">    z <span class="op">=</span> <span class="bu">int</span>(z <span class="op">/</span> p)</a>
+<a class="sourceLine" id="cb4-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb4-25" data-line-number="25"><span class="co">#div = [2, 2, 2, 2, 3, 3, 3, 5, 7, 7, 11, 13]</span></a></code></pre></div>
+<h4 id="größter-gemeinsamer-teiler">Größter gemeinsamer Teiler</h4>
+<p>Seien <span class="math inline">\(a, b \in \mathbb{Z}, a \neq 0, b \neq 0\)</span><br />
+<span class="math inline">\(ggT(a, b) := max\{t \in \mathbb{Z} | t \geq 1 \land t|a \land t|b\}\)</span><br />
+</p>
+<p>a, b <strong>teilerfremd</strong> <span class="math inline">\(\iff ggT(a, b) = 1\)</span></p>
+<h4 id="kleinstes-gemeinsames-vielfaches">Kleinstes gemeinsames Vielfaches</h4>
+<p>Seien <span class="math inline">\(a, b \in \mathbb{Z}, a \neq 0, b \neq 0\)</span><br />
+<span class="math inline">\(kgV(a, b) := min\{w \in \mathbb{Z} | w \geq 1 \land a|w \land b|w\}\)</span></p>
+<p><span class="math inline">\(kgV(a, b) \cdot ggT(a, b) = a \cdot b\)</span></p>
+<h2 id="rationale-zahlen">Rationale Zahlen</h2>
+<p><em>Motivation</em>: In <span class="math inline">\(\mathbb{Z}\)</span> ist die Gleichung <span class="math inline">\(2 \cdot x = 1\)</span> nicht lösbar.<br />
+(Allgemein: <span class="math inline">\(a \cdot x = b\)</span> falls <span class="math inline">\(\lnot a|b\)</span>; <span class="math inline">\(x = \frac{b}{a}\)</span>)</p>
+<p><span class="math inline">\(\widetilde{\mathbb{Q}} := \{\frac{b}{a} | a, b \in \mathbb{Z} \land a \neq 0 \}\)</span></p>
+<p><span class="math inline">\(\mathbb{Q} := \{\frac{b}{a} | a, b \in \mathbb{Z} \land a \neq 0\}\)</span> mit der zuätzlichen Vereinbarung <span class="math inline">\(\frac{b}{a}=\frac{d}{c} \iff b \cdot c = a \cdot d\)</span></p>
+<p><span class="math inline">\(\mathbb{Z} \ni b \mapsto \frac{b}{1} \in \mathbb{Q}\)</span></p>
+<h3 id="rechenoperationen">Rechenoperationen</h3>
+<p><span class="math inline">\(\frac{b}{a} + \frac{d}{c} := \frac{b \cdot c + a \cdot d}{a \cdot c}\)</span></p>
+<p><span class="math inline">\(\frac{b}{a} \cdot \frac{d}{c} := \frac{b \cdot d}{a \cdot c}\)</span></p>
+<p><span class="math inline">\(\frac{b}{a} : \frac{d}{c} := \frac{b}{a} \cdot \frac{c}{d}\)</span> wenn <span class="math inline">\(d \neq 0\)</span></p>
+<p>Jede rationale Zahl <span class="math inline">\(q \in \mathbb{Q}\)</span> hat genau eine Darstellung als unkürzbarer Bruch mit positivem Nenner <span class="math inline">\(q = \frac{b}{a}\)</span> mit <span class="math inline">\(ggT(a, b) = 1\)</span> und <span class="math inline">\(a \geq 1\)</span>.</p>
+<p>Neue Rechenregel: Wenn <span class="math inline">\(q \neq 0\)</span>, dann ist <span class="math inline">\(q \cdot q^{-1} = 1\)</span> (<span class="math inline">\(\frac{a}{b} \cdot \frac{b}{a} = 1\)</span>)</p>
+<p><span class="math inline">\(q, r \in \mathbb{Q} \land q &lt; r \implies q &lt; \frac{q + r}{2} &lt; r\)</span></p>
+<blockquote>
+<p><strong>Satz</strong>: Es gibt kein <span class="math inline">\(q \in \mathbb{Q}\)</span> mit <span class="math inline">\(q^2 = 2\)</span>.</p>
+<p><strong>Beweis</strong>: Annahme - Es gibt ein <span class="math inline">\(q \in \mathbb{Q}\)</span> mit <span class="math inline">\(q^2 = 2\)</span>.<br />
+<span class="math inline">\(\implies (\exists a, b \in \mathbb{Z})(q = \frac{a}{b} \land ggT(a, b) = 1 \land a, b \geq 1)\)</span><br />
+<span class="math inline">\(\implies (\frac{a}{b})^2 = 2\)</span><br />
+<span class="math inline">\(\implies a^2 = 2b^2\)</span><br />
+<span class="math inline">\(\implies 2|a^2\)</span><br />
+<span class="math inline">\(\implies 2|a\)</span><br />
+<span class="math inline">\(\implies (\exists a_0, a \in \mathbb{Z})(a = 2a_0)\)</span><br />
+<span class="math inline">\(\implies (2a_0)^2 = 2b^2\)</span><br />
+<span class="math inline">\(\implies 4a{_0}{^2} = 2b^2\)</span><br />
+<span class="math inline">\(\implies 2a{_0}^2 = b^2\)</span><br />
+<span class="math inline">\(\implies 2|b\)</span><br />
+⚡ da <span class="math inline">\(2|a \land 2|b\)</span> sein müsste, aber <span class="math inline">\(\frac{a}{b}\)</span> vollständig gekürzt ist</p>
+</blockquote>
+<h2 id="reelle-zahlen">Reelle Zahlen</h2>
+<h3 id="dezimalbrüche">Dezimalbrüche</h3>
+<p>Ein Dezimalbruch besteht aus:</p>
+<ol type="1">
+<li>Vorzeichen + oder - (<span class="math inline">\(v \in \{+1, -1\}\)</span>)</li>
+<li>Funktion <span class="math inline">\(d: \mathbb{N} \longrightarrow \mathbb{N}\)</span> (Folge)
+<ul>
+<li><span class="math inline">\(d_0 \in \mathbb{N}\)</span></li>
+<li><span class="math inline">\((\forall i \in \mathbb{N}^+)(d_i \in \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\})\)</span></li>
+</ul></li>
+</ol>
+<ul>
+<li>Schreibweise: <span class="math inline">\(\pm d_0.d{_1}d{_2}d{_3}d{_4}d{_5}...\)</span></li>
+</ul>
+<h4 id="periodische-dezimalbrüche">Periodische Dezimalbrüche</h4>
+<p>Ein Dezimalbruch <span class="math inline">\(\pm d{_0}.d{_1}d{_2}d{_3}...\)</span> heißt periodisch, wenn es ein <span class="math inline">\(l, k \in \mathbb{N}\)</span> gibt mit <span class="math inline">\(l \geq 1, k \geq 0\)</span>, sodass für alle <span class="math inline">\(d_k\)</span> <span class="math inline">\(i \in \mathbb{N}, i &gt; k\)</span> gilt: <span class="math inline">\(d_i = d_{i+l}\)</span></p>
+<p>Das kleinste <span class="math inline">\(l\)</span> mit dieser Eigenschaft heißt die Periodenlänge.<br />
+Schreibweise: <span class="math inline">\(d{_0}.d{_1}d{_2}...\overline{d_{k}d_{k+1}d_{k+2}...d_{k+l}}\)</span><br />
+Spezialfall: Abbrechender Dezimalbruch - <span class="math inline">\(d_0.d_1d_2...d_k\overline{0}\)</span></p>
+<h3 id="definition">Definition</h3>
+<p><span class="math inline">\(\mathbb{R} := \{ \pm d | \pm d \enspace (unendlicher) \enspace Dezimalbruch \}\)</span></p>
+<ul>
+<li><span class="math inline">\(+0 = -0\)</span></li>
+<li>Neunerende: <span class="math inline">\(d_0.d_1d_2..d_k\overline{9} = d_0.d_1d_2...d_{k-1}(d_k+1)\)</span> mit <span class="math inline">\(d_k &lt; 9\)</span></li>
+</ul>
+<h4 id="lexikographische-ordnung">Lexikographische Ordnung &lt;</h4>
+<p>Positives Vorzeichen:</p>
+<ul>
+<li><span class="math inline">\(0 &lt; +d_0.d_1d_2d_3... &lt; +e_0.e_1e_2e_3...\)</span> falls <span class="math inline">\(d_0 &lt; e_0\)</span> oder falls <span class="math inline">\(d_0 = e_0 \land d_1 &lt; e_1\)</span> oder falls <span class="math inline">\(d_0 = e_0 \land d_1 = e_1 \land d_2 &lt; d_2\)</span> etc.</li>
+</ul>
+<p>Negatives Vorzeichen: Umgekehrt</p>
+<h4 id="abbrechender-dezimalbruch">Abbrechender Dezimalbruch</h4>
+<p><span class="math inline">\(\mathbb{R} \ni d_0.d_1d_2d_3...d_n \mapsto d_0 + \frac{d_1}{10} + \frac{d2}{100} + \frac{d_3}{1000} + ... + \frac{d_n}{10^n} \in \mathbb{Q}\)</span></p>
+<p>Zum Dezimalbruch <span class="math inline">\(d_0.d_1d_2d_3...\)</span> heißt <span class="math inline">\(d^{[n]}=d_0.d_1d_2...d_n\)</span> die n-te Näherung von d.</p>
+<h4 id="zuordnung-dezimalbruch-leftrightarrow-rationale-zahl">Zuordnung Dezimalbruch <span class="math inline">\(\Leftrightarrow\)</span> Rationale Zahl</h4>
+<p>Sei <span class="math inline">\(q = \frac{a}{b} \in \mathbb{Q}\)</span></p>
+<p>Durch fortgesetzte Division kann man <span class="math inline">\(q\)</span> einen Dezimalbruch <span class="math inline">\(\in \mathbb{R}\)</span> zuordnen.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1"> <span class="dv">16</span> : <span class="dv">7</span> <span class="op">=</span> <span class="fl">2.285714</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="dv">-14</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">  <span class="dv">20</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"> <span class="dv">-14</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">   <span class="dv">60</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">  <span class="dv">-54</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">    <span class="dv">40</span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8">   <span class="dv">-35</span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9">     <span class="dv">50</span></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10">    <span class="dv">-49</span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11">      <span class="dv">10</span></a>
+<a class="sourceLine" id="cb5-12" data-line-number="12">      <span class="dv">-7</span></a>
+<a class="sourceLine" id="cb5-13" data-line-number="13">       <span class="dv">30</span></a>
+<a class="sourceLine" id="cb5-14" data-line-number="14">      <span class="dv">-28</span></a>
+<a class="sourceLine" id="cb5-15" data-line-number="15">        <span class="dv">2</span></a></code></pre></div>
+<p><span class="math inline">\(16 : 7 = 2.\overline{285714}\)</span></p>
+<p>Umgekehrt: Periodischer Dezimalbruch <span class="math inline">\(\longmapsto\)</span> rationale Zahl</p>
+<p><span class="math inline">\(x = 3.1\overline{72} \quad | \cdot 10^2\)</span><br />
+<span class="math inline">\(10^2 \cdot x = 317.2 \overline{72}\)</span><br />
+<span class="math inline">\(10^2 \cdot x - x = 317.2 \overline{72} = 317.2 - 3.1 = 314.1\)</span><br />
+<span class="math inline">\(99x = 314.1\)</span><br />
+<span class="math inline">\(990x = 3141\)</span> <span class="math inline">\(x = \frac{3141}{990} = \frac{349}{110}\)</span></p>
+<p>Die rationalen Zahlen entsprechen so genau den periodischen Dezimalbrüchen. In diesem Sinne gilt: <span class="math inline">\(\mathbb{Q} \subseteq \mathbb{R}\)</span></p>
+<p>TODO: Ergänzen!</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">def</span> to_fraction(start, repeating):</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">    t <span class="op">=</span> <span class="dv">10</span><span class="op">**</span>(<span class="bu">len</span>(<span class="bu">str</span>(repeating)))</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">    x <span class="op">=</span> <span class="bu">float</span>(<span class="bu">str</span>(start) <span class="op">+</span> <span class="bu">str</span>(repeating))</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">    b <span class="op">=</span> (t <span class="op">-</span> <span class="dv">1</span>) <span class="op">*</span> x <span class="op">-</span> x</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">    <span class="cf">return</span> (b, t<span class="dv">-1</span>)</a></code></pre></div>
+<p><span class="math inline">\(\frac{16}{7}_{(10)}\)</span></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1"> <span class="dv">16</span> : <span class="dv">7</span> <span class="op">=</span> <span class="fl">10.010</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="dv">-14</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">  <span class="dv">2</span><span class="op">-&gt;</span><span class="dv">4</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">     <span class="dv">4</span><span class="op">-&gt;</span><span class="dv">8</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">       <span class="dv">-7</span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">        <span class="dv">1</span><span class="op">-&gt;</span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">           <span class="dv">2</span><span class="op">-&gt;</span><span class="dv">4</span></a></code></pre></div>
+<p><span class="math inline">\(10000_{(2)}:111_{(2)}=10.\overline{010}_{(2)}\)</span></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" data-line-number="1"> <span class="dv">11</span> : <span class="dv">6</span> <span class="op">=</span> <span class="fl">1.110</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"> <span class="dv">-6</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">  <span class="dv">5</span><span class="op">-&gt;</span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">     <span class="dv">-6</span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">      <span class="dv">4</span><span class="op">-&gt;</span><span class="dv">8</span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">        <span class="dv">-6</span></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7">         <span class="dv">2</span><span class="op">-&gt;</span><span class="dv">4</span></a>
+<a class="sourceLine" id="cb8-8" data-line-number="8">            <span class="dv">4</span><span class="op">-&gt;</span><span class="dv">8</span></a></code></pre></div>
+<p><span class="math inline">\(1011_{(2)} : 110_{(2)} = 1.1\overline{10}_{(2)}\)</span></p>
+<h3 id="schranken">Schranken</h3>
+<blockquote>
+<p><strong>Definition</strong>:<br />
+Sei <span class="math inline">\(A \subseteq R, A \neq \emptyset\)</span>. Eine Zahl <span class="math inline">\(s \in \mathbb{R}\)</span> heißt obere Schranke von A wenn <span class="math inline">\((\forall a \in A)(a \leq s)\)</span>. Wenn solch eine obere Schranke existiert, heißt <span class="math inline">\(A\)</span> nach oben beschränkt.</p>
+<p>Analog heißt <span class="math inline">\(\tilde{s} \in \mathbb{R}\)</span> untere Schranke <span class="math inline">\(\iff (\forall a \in A)(\tilde{s} \leq a)\)</span>. In diesem Fall heißt <span class="math inline">\(A\)</span> nach unten beschränkt.</p>
+</blockquote>
+<p>A sei nach oben beschränkt. Wenn <span class="math inline">\(\{s \in \mathbb{R} | s \enspace obere \enspace Schranke \enspace von \enspace A\}\)</span> ein kleinstes Element enthält, so heißt dieses Supremum.</p>
+<p><span class="math inline">\(\sup{A} := \min \{ s \in \mathbb{R} | (\forall a \in A) a \leq s \}\)</span></p>
+<p>Analog: Infinum (größte untere Schranke):</p>
+<p><span class="math inline">\(\inf{A} := \max \{ s \in \mathbb{R} | (\forall a \in A) a \leq s \}\)</span></p>
+<blockquote>
+<p><strong>Satz</strong>: Wenn <span class="math inline">\(A \subseteq \mathbb{R}, A \neq \emptyset\)</span>, A nach oben beschränkt, dann existiert <span class="math inline">\(\sup{A}\)</span>.<br />
+Wenn <span class="math inline">\(A \subseteq \mathbb{R}, A \neq \emptyset\)</span>, A nach unten beschränkt, dann existiert <span class="math inline">\(\inf{A}\)</span>.</p>
+</blockquote>
+<p><span class="math inline">\(d, e \in \mathbb{R}, 0 &lt; d, 0 &lt; e\)</span><br />
+<span class="math inline">\(d + e := \sup \{d^{[n]} + e^{[n]} | n \in \mathbb{N} \}\)</span></p>
+<p><span class="math inline">\(d \cdot e := \sup \{d^{[n]} \cdot e^{[n]} | n \in \mathbb{N} \}\)</span></p>
+<h3 id="abzählbarkeit">Abzählbarkeit</h3>
+<p><span class="math inline">\(\mathbb{N} \sim \mathbb{Q}\)</span></p>
+<p><span class="math inline">\(\mathbb{N} \sim \mathbb{Q}^+\)</span></p>
+<p><span class="math inline">\(\frac{a}{b} \in \mathbb{Q}, \quad a, b \geq 1\)</span></p>
+<p>“Höhe” <span class="math inline">\(h(\frac{a}{b}) := a + b\)</span></p>
+<p><span class="math inline">\(\mathbb{N} \nsim \mathbb{R}\)</span> (Cantors Diagonalbeweis)</p>
+<p>rational | irrational<br />
+algebraisch | transzendent</p>
+<h3 id="identitäten-in-den-reellen-zahlen">Identitäten in den reellen Zahlen</h3>
+<p><span class="math inline">\(\forall x, y, z \in \mathbb{R}\)</span></p>
+<p><span class="math inline">\(x + y = y + x\)</span><br />
+<span class="math inline">\((x + y) + z = x + (y + z)\)</span><br />
+<span class="math inline">\(x + 0 = x\)</span><br />
+<span class="math inline">\(x + (-x) = 0\)</span><br />
+<span class="math inline">\(xy = yx\)</span><br />
+<span class="math inline">\((xy)z = x(yz)\)</span><br />
+<span class="math inline">\(x(y+z)=xy+xz\)</span><br />
+<span class="math inline">\(x \cdot 1 = x\)</span><br />
+<span class="math inline">\(x \neq 0 \implies x \cdot x^{-1} = 1\)</span></p>
+<h3 id="erweiterte-reelle-zahlen">Erweiterte reelle Zahlen</h3>
+<p><span class="math inline">\(\mathbb{R}_{erw} := \mathbb{R} \cup \{- \infty, + \infty \}\)</span></p>
+<p><span class="math inline">\((\forall x \in \mathbb{R})( -\infty &lt; x &lt; +\infty)\)</span></p>
+<p><span class="math inline">\(\mathbb{R}^+ := \{x \in \mathbb{R} | x &gt; 0\}\)</span>, <span class="math inline">\(\mathbb{R}^+_0 := \{x \in \mathbb{R} | x \geq 0\}\)</span></p>
+<p><span class="math inline">\(\mathbb{R}^- := \{x \in \mathbb{R} | x &lt; 0\}\)</span>, <span class="math inline">\(\mathbb{R}^-_0 := \{x \in \mathbb{R} | x \leq 0\}\)</span></p>
+<h3 id="intervalle">Intervalle</h3>
+<p><span class="math inline">\(a, b \in \mathbb{R}, a &lt; b\)</span></p>
+<p>Offen: <span class="math inline">\((a, b) = ]a, b[ := \{x \in \mathbb{R} | a &lt; x &lt; b\}\)</span></p>
+<p>Geschlossen: <span class="math inline">\([a, b] := \{x \in \mathbb{R} | a \leq x \leq b\}\)</span></p>
+<p>Halboffen: <span class="math inline">\([a, b) := \{x \in \mathbb{R} | a \leq x &lt; b\}\)</span></p>
+<p><span class="math inline">\((a, b] := \{x \in \mathbb{R} | a &lt; x \leq b \}\)</span></p>
+<p><span class="math inline">\([a, +\infty):= \{x \in \mathbb{R} | a \leq x \}\)</span></p>
+<p><span class="math inline">\((a, +\infty):= \{x \in \mathbb{R} | a &lt; x \}\)</span></p>
+<p><span class="math inline">\((-\infty, +\infty) = \mathbb{R}\)</span></p>
+<h2 id="rechenregeln">Rechenregeln</h2>
+<h3 id="potenzgesetze">Potenzgesetze</h3>
+<p><span class="math inline">\(x \in \mathbb{R}, \quad m, n \in \mathbb{N}\)</span></p>
+<p><span class="math inline">\(x^0 := 1\)</span> (auch <span class="math inline">\(0^0=1\)</span>)</p>
+<p><span class="math inline">\(n \geq 1 \implies x^n = \overbrace{xxx...x}\)</span></p>
+<p><span class="math inline">\(x^{n+1}=x^nx\)</span></p>
+<p><span class="math inline">\(x^{m+n}=x^m \cdot x^n = (x^n)^m\)</span></p>
+<p><span class="math inline">\(x \in \mathbb{R}, x \neq 0, m, n \in \mathbb{N}^+, m,n \geq 1\)</span></p>
+<p><span class="math inline">\(x^{-1} = \frac{1}{x}\)</span></p>
+<p><span class="math inline">\(x^{-n} = (\frac{1}{x})(\frac{1}{x})(\frac{1}{x})...(\frac{1}{x}) = \frac{1}{x^n}\)</span></p>
+<p><span class="math inline">\(x^{m-n} = \frac{x^m}{x^n} = x^m \cdot x^{-n}\)</span></p>
+<h4 id="potenz--und-wurzelfunktionen">Potenz- und Wurzelfunktionen</h4>
+<p><span class="math inline">\(n \geq 1\)</span></p>
+<p><span class="math inline">\(pot_n : \mathbb{R} \Rightarrow \mathbb{R}, x \longmapsto x^n\)</span></p>
+<p>Beispiel: <img src="cubed.png" alt="f(x)=x^3" /></p>
+<p>Für alle <span class="math inline">\(n \geq 1\)</span> gilt: <span class="math inline">\(pot_n : \mathbb{R}^+_0 \longrightarrow \mathbb{R}^+_0\)</span> ist bijektiv</p>
+<p>Umkehrfunktionen <span class="math inline">\(root_n : \mathbb{R}^+_0 \rightarrow \mathbb{R}^+_0, x \mapsto \sqrt[n]{x}\)</span></p>
+<p><span class="math inline">\(root_n(pot_n(x)) = x\)</span><br />
+<span class="math inline">\(pot_n(root_n(x)) = x\)</span><br />
+<span class="math inline">\(\sqrt[n]{x^n} = \sqrt[n]{x}^n = x\)</span></p>
+<p><span class="math inline">\((\sqrt[m]{x})^n = \sqrt[m]{((\sqrt[m]{x})^n)^m} = \sqrt[m]{(\sqrt[m]{x})^{nm}} = \sqrt[m]{((\sqrt[m]{x})^m)^n} = \sqrt[m]{x^n}\)</span></p>
+<p><span class="math inline">\(x^{\frac{m}{n}} := (\sqrt[m]{x})^n = \sqrt[m]{x^n}\)</span>, speziell <span class="math inline">\(x^{\frac{1}{m}}=\sqrt[m]{x}\)</span></p>
+<p><span class="math inline">\((x^{\frac{a}{b}})^{\frac{c}{d}} = x^{\frac{ac}{bd}}\)</span>, <span class="math inline">\(x^{\frac{a}{b}+\frac{c}{d}} = x^{\frac{ad + bc}{bd}}\)</span></p>
+<hr />
+<p><span class="math inline">\(\alpha \in \mathbb{R}, \alpha\)</span> irrational<br />
+<span class="math inline">\(x &gt; 0\)</span></p>
+<p><span class="math inline">\(x^\alpha = ?\)</span></p>
+<p>Ordentliche Folge (q) von rationalen Zahlen <span class="math inline">\(q_n\)</span></p>
+<p>mit <span class="math inline">\(\lim_{x \to \infty}{q}=x\)</span></p>
+<p><span class="math inline">\(exp(z) = e^z = \sum^{\infty}_{k=0} \frac{z^k}{k!}\)</span></p>
+<p>Aufgabe: <span class="math inline">\(\sqrt[4]{a^{\frac{2}{3}}}\)</span></p>
+<p><span class="math inline">\(\sqrt[4]{a^{\frac{2}{3}}} = (a^\frac{2}{3})^\frac{1}{4} = a^{\frac{2}{12}} = a^{\frac{1}{6}}\)</span></p>
+<p><span class="math inline">\(\sqrt[8]{a^2b \cdot \sqrt[4]{b^{12}}} = (a^2b \cdot (b^{12})^\frac{1}{4})^\frac{1}{8} = a^\frac{1}{4} \cdot b^\frac{1}{2}\)</span></p>
+</body>
+</html>

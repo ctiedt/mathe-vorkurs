@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Rechnen mit reellen Zahlen</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="C:/pandoc-2.3-windows-x86_64/retro.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/contrib/auto-render.min.js"></script><script>document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body);
+  });</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="rechnen-mit-reellen-zahlen">Rechnen mit reellen Zahlen</h1>
+<h2 id="formeln">Formeln</h2>
+<h3 id="summenzeichen">Summenzeichen</h3>
+<p><span class="math display">\[\sum^n_{i=m} f(i) := \begin{cases} 0 \impliedby n&lt;m \\ f(m) + f(m+1) f(m+2) +...+ f(n) \impliedby n \geq m\end{cases}\]</span></p>
+<p>Verallgemeinerung: <span class="math inline">\(I\)</span> sei endliche Menge.</p>
+<p><span class="math display">\[\sum_{\alpha \in I} f(\alpha)\]</span></p>
+<h3 id="produktzeichen">Produktzeichen</h3>
+<p><span class="math display">\[
+\prod^n_{i=m} f(i) :=
+\begin{cases}
+1 \impliedby n &lt; m \\
+f(m) \cdot f(m+1) \cdot f(m+2) \cdot ... \cdot f(n) \impliedby n \geq m
+\end{cases}
+\]</span></p>
+<h4 id="übungsaufgaben">Übungsaufgaben</h4>
+<p><span class="math display">\[
+\begin{aligned}
+\sum^8_{i=1}i = 36  \quad \sum^{100}_{i=1}i = 5050 \\
+\sum^{4}_{i=-4}i^3 = 0 \quad \sum^{10}_{i=2}3 = 27 \\
+\prod^{5}_{i=1}i = 120 \quad \prod^{5}_{i=0}2 = 64
+\end{aligned}
+\]</span></p>
+<ul>
+<li>Laufvariable <span class="math inline">\(i\)</span> kann umbenannt werden, vorausgesetzt, die neue Variable kommt in <span class="math inline">\(f(i)\)</span> nicht vor</li>
+<li><strong>Indexverschiebung</strong>: Laufbeginn und Laufende können verschoben werden, wenn dies zu einer “bequemeren” Form führt</li>
+</ul>
+<p><span class="math display">\[
+\sum^n_{i=m}f(i) = \sum^{n+k}_{i=m+k}f(i-k) = \sum^{n-k}_{i=m-k}f(i+k)
+\]</span></p>
+<ul>
+<li>Will <span class="math inline">\(1+3+5+...+(2n-3)+(2n-1)\)</span> mit Summenzeichen schreiben</li>
+</ul>
+<p><span class="math display">\[
+\sum^{n}_{i=1}(2i-1) = \sum^{n+2}_{i=3}(2i-5) = \sum^{n-1}_{i=0}(2i+1) = \sum^{n-3}_{i=-2}(2i+5)
+\]</span></p>
+<p>Gesetze:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum^{n}_{i=m}(f(i)+g(i)) = \sum^{n}_{i=m}f(i) + \sum^{n}_{i=m}g(i) \\
+\sum^{n}_{i=m} a \cdot f(i) = a \cdot \sum^{n}_{i=m} f(i) \\
+\prod^{n}_{i=m}(f(i) \cdot g(i))= (\prod^{n}_{i=m}f(i)) \cdot (\prod^{n}_{i=m}g(i)) \\
+\prod^n_{i=m}f(i)^a = (\prod^n_{i=m}f(i))^a \\
+\log_a(\prod^n_{i=m}f(i)) = \sum^n_{i=m} \log_a(f(i)) \\
+\sum^{n}_{i=m} \sum^{b}_{j=a}f(i, j) = \sum^{b}_{j=a} \sum^{n}_{i=m}f(i, j) = \sum_{(i, j) \in \{m, m+1, ..., n\} \times \{a, a+1, ..., b\}}f(i, j)
+\end{aligned}
+\]</span></p>
+<blockquote>
+<p>Für kommutative und assoziative Operationen kann man diese Schreibweisen übertragen.</p>
+<p>Beispiele: <span class="math inline">\(\cup^n_{i=m} := \begin{cases} \emptyset \impliedby n &lt; m \\ A_m \cup A_{m+1} \cup A_{m+2} \cup ... \cup A_n \impliedby m \leq n \end{cases}\)</span><br />
+<span class="math inline">\(\cup\{A_i | i \in I \} = \cup_{i \in I}A_i = \{a | (\exists i \in I) a \in A\}\)</span></p>
+<p><span class="math inline">\(\cap^n_{i=m}A_i = \begin{cases} \mathbb{M} \impliedby n &lt; m \\ A_m \cap A_{m+1} \cap A_{m+2} \cap ... \cap A_n \impliedby m \leq n \end{cases}\)</span></p>
+</blockquote>
+<h4 id="geometrische-summe">Geometrische Summe</h4>
+<p><span class="math display">\[x \in \mathbb{R}, \sum^n_{i=0}x^i = (1+x+x^2+x^3+...+x^{n-1}+x^n)\]</span></p>
+<p><span class="math display">\[
+\begin{gathered}
+(\sum^n_{i=0}x^i) \cdot (1 - x) = (\sum^n_{i=0}x^i) -(x\sum^n_{i=0}x^i) \\ = (1 + x + x^2 +... + x^n) - x(1 + x + x^2 + ... + x^n) = (1 + x + x^2 +...+ x^n) - (x + x^2 + x^3 + ... + x^n + x^{n+1}) = 1 - x^{n+1} \\
+\implies \sum^n_{i=0}x^i = 1 + x + x^2 +...+ x^n = \begin{cases}
+\frac{1-x^{n+1}}{1-x} \impliedby x \neq 1 \\
+n + 1 \impliedby x = 1
+\end{cases}
+\end{gathered}\]</span></p>
+<h2 id="fakultät-und-binomialkoeffizienten">Fakultät und Binomialkoeffizienten</h2>
+<p><span class="math inline">\(n!\)</span> “n Fakultät”, <span class="math inline">\(n \in \mathbb{N}\)</span></p>
+<p><span class="math inline">\(0! = 1, \quad (n+1)! := (n!) \cdot (n+1)\)</span></p>
+<p><span class="math display">\[n! = 1 \cdot 2 \cdot 3 \cdot ... \cdot (n-1) \cdot n = \prod^n_{i=1}i, \quad (n \geq 1)\]</span></p>
+<p>Die Fakultät <span class="math inline">\(n!\)</span> wächst schneller als <span class="math inline">\(a^n\)</span> für ein beliebiges <span class="math inline">\(a\)</span>.</p>
+<h3 id="kombinatorische-bedeutung">Kombinatorische Bedeutung</h3>
+<p><span class="math inline">\(n! =\)</span> Anzahl der Möglichkeiten, <span class="math inline">\(n\)</span> (paarweise disjunkte) Elemente in einer Reihe anzuordnen (Permutationen von <span class="math inline">\(n\)</span> Objekten)</p>
+<h3 id="exkurs-was-ist-10000">Exkurs: Was ist 10000! ?</h3>
+<p>Wissenschaftliche Notation: <span class="math inline">\(d_0.d_1d_2...d_k \cdot 10^e\)</span> (<span class="math inline">\(e \in \mathbb{Z}\)</span>, Exponent)</p>
+<p>Normalisiert: <span class="math inline">\(d_0.d_1d_2...d_k \cdot 10^e\)</span> mit <span class="math inline">\(d_0 \neq 0\)</span></p>
+<p>Bsp.: <span class="math inline">\(0.034 \cdot 10^7 = 3.4 \cdot 10^5 = 3.4E5\)</span></p>
+<h4 id="stirlingsche-formeln">Stirling’sche Formeln</h4>
+<p>grob: <span class="math inline">\(n! \approx \sqrt{2 \pi n} \cdot (\frac{n}{e})^n\)</span></p>
+<p>genauer: <span class="math inline">\((\exists \Theta \in \{-1, +1\}) n! \approx \sqrt{2 \pi n} \cdot (\frac{n}{e})^n \cdot e^{\frac{1}{120} + \frac{\Theta}{120 n^2}}\)</span></p>
+<p><span class="math inline">\(z \in \mathbb{Z}, z \geq 1, B \in \mathbb{Z}, B \geq 2\)</span></p>
+<p>Wie viele Ziffern n hat z in Basis B?</p>
+<p><span class="math display">\[
+\begin{aligned}
+B^{n-1} \leq z &lt; B^n\\
+\log_B(B^{n-1}) \leq \log_B(z) &lt; \log_B(B^n) \\
+n - 1 \leq \log_B(z) &lt; n \\
+n - 1 = \lfloor \log_B(z) \rfloor , \quad n = \lfloor \log_B(z) \rfloor + 1
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(10000! = 10^{\log(10000!)} = 10^{35659.4542} = 10^{0.4542} \cdot 10^{35659} \approx \underline{\underline{2.8 \times 10^{35659}}}\)</span></p>
+<h3 id="binomialkoeffizient">Binomialkoeffizient</h3>
+<p><span class="math inline">\(m, n \in \mathbb{N}, m \leq n\)</span></p>
+<p><span class="math inline">\(\binom{n}{m} = \frac{n!}{m! \cdot (n - m)!}\)</span></p>
+<p><span class="math inline">\(\binom{n}{0} := 1, \binom{0}{0} = 1, \binom{n}{1} = n, \binom{n}{n} = 1\)</span>, (<span class="math inline">\(\binom{n}{m} = 0\)</span> falls <span class="math inline">\(n &lt; m\)</span>)</p>
+<p><span class="math inline">\(\binom{n}{m}=\binom{n}{n-m}\)</span></p>
+<p><span class="math inline">\(\binom{n}{m} + \binom{n}{m+1} = \binom{n+1}{m+1}\)</span></p>
+<h4 id="kombinatorische-bedeututng-des-binomialkoeffizienten">Kombinatorische Bedeututng des Binomialkoeffizienten</h4>
+<p><span class="math inline">\(\binom{n}{m} =\)</span> Anzahl der m-elementigen Teilmengen einer n-elementigen Menge</p>
+<p><span class="math display">\[
+\begin{gathered}
+\binom{0}{0}\\
+\binom{1}{0} \quad \binom{1}{1}\\
+\binom{2}{0} \quad \binom{2}{1} \quad \binom{2}{2} \\
+\binom{3}{0} \quad \binom{3}{1} \quad \binom{3}{2} \quad \binom{3}{3} \\
+\binom{4}{0} \quad \binom{4}{1} \quad \binom{4}{2} \quad \binom{4}{3} \quad \binom{4}{4}
+\end{gathered}
+\]</span></p>
+<p><span class="math inline">\(\binom{n}{m_1, m_2, m_3, ..., m_l} := \frac{n!}{m_1! \cdot m_2! \cdot m_3! \cdot ... \cdot m_l!}\)</span> - Anzahl der Möglichkeiten, eine n-elementige Menge so in l Mengen zu zerlegen, dass die erste <span class="math inline">\(m_1\)</span> Elemente, die zweite <span class="math inline">\(m_2\)</span> Elemente, …, die l-te <span class="math inline">\(m_l\)</span> Elemente enthält.</p>
+<h2 id="faktorisierung-binomische-formeln">Faktorisierung, Binomische Formeln</h2>
+<p><strong>Distributivgesetz</strong>: <span class="math inline">\(a \cdot b + a \cdot c = a \cdot (b + c)\)</span><br />
+<span class="math inline">\(a \cdot c + a \cdot d + b \cdot c + b \cdot d = (a+b)(c+d)\)</span></p>
+<h3 id="binomische-formeln">Binomische Formeln</h3>
+<ul>
+<li><span class="math inline">\(a^2 + 2ab + b^2 = (a+b)^2\)</span></li>
+<li><span class="math inline">\(a^2 - 2ab + b^2 = (a-b)^2\)</span></li>
+<li><span class="math inline">\(a^2 - b^2 = (a+b)(a-b)\)</span></li>
+</ul>
+<blockquote>
+<p><strong>Binomischer Satz</strong>: <span class="math display">\[(a+b)^n = \sum^n_{m=0}a^{n-m} \cdot b^m = a^n + n \cdot a^{n-1} \cdot b + \binom{n}{2} \cdot a^{n-2} \cdot b^2 + ... + n \cdot a \cdot b^{n-1} + b^n\]</span></p>
+</blockquote>
+<p><span class="math inline">\(4a^2 + 9b^2 + 12ab = (2a + 3b)^2\)</span></p>
+<p><span class="math inline">\(x^2 + 6xz - y^2 + 9z^2 = (x + 3z)^2 - y^2 = (x + 3z + y)(x + 3z - y)\)</span></p>
+<h4 id="regel-von-vieta">Regel von Vieta</h4>
+<p><span class="math inline">\((x - a)(x - b) = x^2 - (a + b) \cdot x + a \cdot b\)</span></p>
+<p><span class="math inline">\((x - a)(x - b)(x - c) = x^3 - (a + b + c) \cdot x^2 + (a \cdot b + a \cdot b + a \cdot c) \cdot x - a \cdot b \cdot c\)</span></p>
+<p>Aufgaben:</p>
+<p><span class="math inline">\(x^2 - 13.5x + 45 = (x - 7.5)(x - 6)\)</span></p>
+<p><span class="math inline">\(x^2 + x - 56 = (x - 7)(x + 8)\)</span></p>
+<p><span class="math inline">\(a \cdot (c + b) - c \cdot (b + a) + b \cdot (c - a) =(ab + ac) - (ab + ac) + (ab - ac) = 0\)</span></p>
+<p><span class="math inline">\((b - a)(a + b) + (c + b - a)(c - b - a) - (b - c)^2 = (b^2-a^2) +(c^2-bc-ac+bc-b^2-ab-ac+ab+a^2) - (b - c)^2 = -b^2 -2ac +2bc\)</span></p>
+<h2 id="etwas-bruchrechnung">Etwas Bruchrechnung</h2>
+<p>Bruchstrich = Division</p>
+<p><span class="math inline">\(\frac{a}{b} + \frac{c}{d} = \frac{ad + cb}{bd}\)</span>, <span class="math inline">\(\frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd}\)</span>, <span class="math inline">\(\frac{a}{b} : \frac{c}{d} = \frac{ad}{bc}\)</span></p>
+<p><strong>Doppelbrüche</strong>: Sofort auflösen</p>
+<p><span class="math inline">\(\frac{\frac{2}{3}}{5} = \frac{2}{3} \cdot \frac{1}{5} = (2:3):5\)</span></p>
+<p><span class="math display">\[\frac{x+3}{x^2-4} + \frac{x-3}{x-2} = \frac{(x+3)(x-2) + (x-3)(x^2-4)}{(x^2-4)(x-2)} = \frac{x^2-3}{x^2-4}\]</span></p>
+<p><span class="math display">\[\frac{3}{\frac{x+3}{x-2}} + \frac{\frac{x-102}{x-4}}{x+3} = 3 \frac{x-2}{x+3} + \frac{x-102}{(x-4)(x+3)}= \frac{3x-26}{x-4}\]</span></p>
+<h3 id="vergleichen-von-brüchen">Vergleichen von Brüchen</h3>
+<ul>
+<li>swoeit wie möglich kürzen</li>
+<li>Wurzeln möglichst aus Nennern entfernen</li>
+</ul>
+<p><span class="math inline">\(\frac{1}{\sqrt{2}} = \frac{1}{\sqrt{2}} \cdot \frac{\sqrt{2}}{\sqrt{2}} = \frac{\sqrt{2}}{2}\)</span></p>
+<h2 id="proportionalität">Proportionalität</h2>
+<p>Wir sprechen oft von <strong>Größen</strong> (zeit, Weg, Länge, Breite…)</p>
+<p>Eine solche Größe <span class="math inline">\(X\)</span> ist gekennzeichnet durch</p>
+<ul>
+<li>Name</li>
+<li>Menge von möglichen Werten, die die Größe annehmen kann, eventuell versehen mit Einheiten
+<ul>
+<li>Zur Vereinfachung nehmen wir an, dass alle Zahlenwerte aus <span class="math inline">\(\mathbb{R}^+\)</span> sind</li>
+</ul></li>
+<li>Falls <span class="math inline">\(x\)</span> ein möglicher Wert der Größe <span class="math inline">\(X\)</span> ist, so schreiben wir <span class="math inline">\(x \in X\)</span></li>
+</ul>
+<p>In verschiedenen Zusammenhängen kommen verschiedene Größen vor, die abhängig von einander sind.</p>
+<p>Die Menge aller möglichen Zusammenhänge beschreiben wir mit einer Menge von <span class="math inline">\((n+m)\)</span>-Tupeln <span class="math inline">\(\mathbb{M} \subseteq X_1 \times X_2 \times ... \times X_n \times Y_1 \times Y_2 \times ... \times Y_m\)</span></p>
+<blockquote>
+<p><strong>Definition</strong>: Zwei Größen <span class="math inline">\(X\)</span> und <span class="math inline">\(Y\)</span> heißen proportional, <span class="math inline">\(X \sim Y\)</span>, wenn es ein <span class="math inline">\(c \in \mathbb{R}^+\)</span> gibt, sodass <span class="math inline">\(\mathbb{M} \subseteq X \times Y\)</span> folgende Form hat: <span class="math display">\[\mathbb{M} = \{(x, y) \in X \times Y | \quad x \cdot c = y\}\]</span></p>
+<p>Der Wert <span class="math inline">\(c\)</span> heißt Proportionalitätsfaktor.</p>
+<p>Zwei Größen heißen umgekehrt proportional, <span class="math inline">\(X_1 \sim \frac{1}{X_2}\)</span>, wenn es ein <span class="math inline">\(c \in \mathbb{R}^+\)</span> gibt, sodass <span class="math display">\[\mathbb{M} = \{(x_1, x_2) \in X \times Y | \quad c \cdot x_1 \cdot x_2 = 1\}\]</span></p>
+<p>Die Größen <span class="math inline">\(X_1, ..., X_m, Y_1, ..., Y_n\)</span> stehen in einer <span class="math inline">\((n, m)\)</span>-Proportionalitätsverkettung, wenn es ein <span class="math inline">\(c \in \mathbb{R}^+\)</span> gibt, sodass <span class="math display">\[\mathbb{M} = \{(x_1, ..., x_m, y_1, ..., y_n) \in X \times Y | \quad c \cdot x_1 \cdot ... \cdot x_m = y_1 \cdot ... \cdot y_n\}\]</span></p>
+</blockquote>
+<h3 id="aufgabe-nichts-für-vegetarier">Aufgabe: Nichts für Vegetarier</h3>
+<p>Für die Zerlegung von <span class="math inline">\(7.2t\)</span> Schweinehälften brauchen 14 Arbeiter <span class="math inline">\(8h\)</span>. Wie viele Zerleger braucht man, um <span class="math inline">\(6t\)</span> Schweinehälften in <span class="math inline">\(8h\)</span> zu zerlegen?</p>
+<p>12 Arbeiter.</p>
+<h3 id="prozentrechnung">Prozentrechnung</h3>
+<p>Spezialfall der Proportionalität</p>
+<p>Zwei proportionale Größen</p>
+<ul>
+<li>Prozente</li>
+<li>andere Größe <span class="math inline">\(X\)</span></li>
+</ul>
+<p><span class="math inline">\(1\% = \frac{1}{100}, \quad 1\)</span> ‰<span class="math inline">\(=\frac{1}{1000}\)</span></p>
+<p>Gewisse Quantität der Größe <span class="math inline">\(X\)</span> wird zu <span class="math inline">\(100\%(=1)\)</span> gesetzt. Anderen Werten w entspricht dann ein gewisser Teil der <span class="math inline">\(100\%\)</span>.</p>
+<p>Grundwert <span class="math inline">\(G \in X, \quad G \hat{=} 100\%\)</span></p>
+<p>Prozentwert <span class="math inline">\(w \in X, \quad w \hat{=} p \quad (\text{prozentisch in \%})\)</span></p>
+<p><span class="math inline">\((\exists c \in \mathbb{R}^+)(G = c \cdot 100\%) \land (w= c \cdot p)\)</span></p>
+<p><span class="math inline">\(c = \frac{G}{100\%} = \frac{w}{p}\)</span></p>
+<h4 id="aufgabe-der-kapitalismus-in-seinem-lauf">Aufgabe: Der Kapitalismus in seinem Lauf</h4>
+<p>Artikel wird um <span class="math inline">\(q\%\)</span> verteuert. Wie viel Prozent war er vorher billiger?</p>
+<p><span class="math inline">\(\frac{q}{1 + q} \%\)</span></p>
+<h4 id="herleitung-der-sparkassenformel">Herleitung der Sparkassenformel</h4>
+<p>Hier: nachschüssige Zinsen per anno (p.a.)</p>
+<p>p - “Zinsfuß”, Kapital wird mit p% p.a. verzinst</p>
+<p>q: <span class="math inline">\(1+\frac{p}{100}\)</span> - “Zinsfaktor”</p>
+<p><span class="math inline">\(\text{Kapital} \; k_0 \implies \text{ein Jahr später} \; k_1 = k_0 + k_0 \cdot \frac{p}{100} = k_0 \cdot q\)</span></p>
+<p><span class="math inline">\(k_n = k_0 \cdot q^n\)</span></p>
+<h5 id="problem">Problem</h5>
+<ul>
+<li>Grundkapital <span class="math inline">\(K_0\)</span> (zu Jahresbeginn)</li>
+<li>jährlich mit <span class="math inline">\(p\%\)</span> verzinst</li>
+<li>Dazu wird am Beginn des nächsten Jahres eine feste Rate <span class="math inline">\(R\)</span> eingezahlt</li>
+</ul>
+<p>Wie groß ist das Kapital <span class="math inline">\(K_n\)</span> nach <span class="math inline">\(n\)</span> Jahren?</p>
+<p><span class="math display">\[
+\begin{aligned}
+K_0 \\
+K_1 = K_0 \cdot q + R  \\
+K_2 = K_1 \cdot q + R = K_0 \cdot q^2 + Rq + R \\
+K_3 = K_2 \cdot q + R = K_0 \cdot q^3 + Rq^2 + Rq + R \\
+K_n = K_0 \cdot q^n + R \cdot \frac{q^n - 1}{q - 1}
+\end{aligned}
+\]</span></p>
+<h5 id="aufgabe-zinsen">Aufgabe: Zinsen</h5>
+<p>Sie nehmen einen Hypothekenkredit von 130 000 € zu einem Zinsfuß von 4.5% p.a. auf. Die Rückzahlung geschieht in gleich großen Jahresraten R, die jeweils nach Ablauf eines Jahres fällig sind (Die Höhe der letzten Rate kann kleiner als R sein).</p>
+<ol type="a">
+<li><p>Wieviele Jahre müssen Sie zahlen, wenn R die Höhe von 5.5% von 130 000€ hat?</p></li>
+<li><p>Wie hoch muss R sein, wenn Sie den Kredit nach 20 Jahren zurückgezahlt haben wollen?</p></li>
+</ol>
+<p><strong>(a)</strong>:</p>
+<p><span class="math display">\[\begin{gathered}
+q = 1 + \frac{p}{100} = 1 + \frac{4.5}{100} = 1.045 \\
+K_0 = 130000€ \\
+|R| = 0.055 \cdot 130000€ = 7150€
+\end{gathered}\]</span></p>
+<p><span class="math inline">\(\text{Gesucht}: n\)</span></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">def</span> kredit(n):</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">    k0 <span class="op">=</span> <span class="dv">130000</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">    q <span class="op">=</span> <span class="fl">1.045</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">    r <span class="op">=</span> <span class="dv">7150</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">    <span class="cf">return</span> k0<span class="op">*</span>q<span class="op">**</span>n <span class="op">+</span> r <span class="op">*</span> (q<span class="op">**</span>n <span class="op">-</span> <span class="dv">1</span>)<span class="op">/</span>(q <span class="op">-</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">n <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="cf">while</span> kredit(n) <span class="op">&gt;</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">    n <span class="op">+=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co"># n = 39</span></a></code></pre></div>
+<p><span class="math inline">\(n = 39 \; \text{Jahre}\)</span></p>
+<p><strong>(b)</strong>:</p>
+<p><span class="math display">\[
+\begin{gathered}
+R = \frac{q^n - 1}{q - 1} - K_0 \cdot q^n \\
+R = 9993.90€
+\end{gathered}
+\]</span></p>
+<h2 id="polynome">Polynome</h2>
+<blockquote>
+<p><strong>Definition</strong>: Sei <span class="math inline">\(n \in \mathbb{N}\)</span>. Ein Polynom n-ten Grades in der Unbestimmten x ist ein Ausdruck der Form <span class="math inline">\(f(x) = \sum_{k=0}^n a_k \cdot x^k\)</span> mit <span class="math inline">\(a_i \in \mathbb{R}\)</span> für <span class="math inline">\(i = 0..n\)</span> und <span class="math inline">\(a_n \neq 0\)</span>. Die <span class="math inline">\(a_i\)</span> heißen <em>Koeffizienten</em> von <span class="math inline">\(f(x)\)</span> und <span class="math inline">\(a_n\)</span> heißt <em>Leitkoeffizient</em> von <span class="math inline">\(f(x)\)</span>.</p>
+<p><span class="math inline">\(\text{Grad}(f(x)) = n \equiv \deg(f(x)) = n\)</span><br />
+<span class="math inline">\(\text{LK}(f(x)) = a_n\)</span></p>
+<p>Es gibt noch ein weiteres Polynom, das <em>Nullpolynom</em> <span class="math inline">\(0\)</span>. Das Nullpolynom hat keinen Leitkoeffizienten, und wir setzen <span class="math inline">\(\text{Grad}(0) := -\infty\)</span></p>
+<p>Die Menge aller Polynome in x wird mit <span class="math inline">\(\mathbb{R}[x]\)</span> bezeichnet.</p>
+<p>Beispiel: <span class="math inline">\(f(x) = a_0, \; a_0 \neq 0, \; \text{Grad}(f(x)) = 0\)</span></p>
+</blockquote>
+<h3 id="anmerkungen">Anmerkungen</h3>
+<ol type="1">
+<li>Schreiben <span class="math inline">\(f(x) \not\equiv 0\)</span>, falls <span class="math inline">\(f(x)\)</span> nicht das Nullpolynom ist</li>
+<li>Falls <span class="math inline">\(\text{Grad}(f(x)) = n, \; n &lt;m, \; f(x) = \sum_{k=0}^n a_k \cdot x^k\)</span>, so schreiben wir manchmal auch <span class="math inline">\(f(x) = \sum_{k=0}^m a_k \cdot x^k\)</span>. Dabei sind <span class="math inline">\(a_{n+1} = a_{n+2} = ... = a_{m} = 0\)</span> zu setzen</li>
+<li>Ein normiertes Polynom hat <span class="math inline">\(\text{LK}(f(x)) = 0\)</span></li>
+</ol>
+<h3 id="rechnen-mit-polynomen">Rechnen mit Polynomen</h3>
+<p>Sei <span class="math inline">\(f(x) = a_nx^n + ... + a_1x + a_0, \; a_n \neq 0\)</span><br />
+<span class="math inline">\(g(x) = b_mx^m + ... + b_1x + b_0, \; b_m \neq 0\)</span></p>
+<p>Sei <span class="math inline">\(k := \max \{n, m\}\)</span></p>
+<h4 id="addition">Addition</h4>
+<p><span class="math display">\[\begin{aligned}
+f(x) + g(x) := \sum_{i=0}^k(a_i+b_i)x^i \\
+0 + f(x) = f(x) + 0 := f(x)
+\end{aligned}\]</span></p>
+<h4 id="produkt">Produkt</h4>
+<p><span class="math display">\[\begin{aligned}
+f(x) \cdot g(x) := \sum_{i=0}^{n+m} (\sum_{j=0}^i a_j \cdot b_{i-j})x^i \\
+f(x) \cdot 0 = 0 \cdot f(x) = 0 \\
+\text{Sei } \alpha \in \mathbb{R}, \alpha \cdot f(x) := \sum_{i=0}^n (\alpha \cdot a_i)x^{i}
+\end{aligned}\]</span></p>
+<p>Für alle <span class="math inline">\(f(x), \; g(x)\)</span> gilt:</p>
+<ul>
+<li><span class="math inline">\(\text{Grad}(f(x)+g(x)) \leq \max \{ \text{Grad}(f(x)), \text{Grad}(g(x)) \}\)</span></li>
+<li><span class="math inline">\(\text{Grad}(f(x) \cdot g(x)) = \text{Grad}(f(x)) + \text{Grad}(g(x))\)</span></li>
+<li><span class="math inline">\(\text{LK}(f(x) \cdot g(x)) = \text{LK}(f(x)) \cdot \text{LK}(g(x))\)</span></li>
+<li><span class="math inline">\(f(x) \not\equiv 0 \land g(x) \not\equiv 0 \implies f(x) \cdot g(x) \not\equiv 0\)</span></li>
+</ul>
+<p><span class="math inline">\((2x^2 + x - 3)(x^3 + x^2 + 2) = (2x^5 + 2x^4 + 4x^2 + x^4 + x^3 +2x - 3x^3 - 3x^2 - 6) = (2x^5 + 3x^4 - 2x^3 + x^2 + 2x - 6)\)</span></p>
+<h3 id="rechenregeln-für-polynome">Rechenregeln für Polynome</h3>
+<p><span class="math display">\[\begin{aligned}
+(\forall f(x), g(x), h(x) \in \mathbb{R}[x]) \\
+f(x) + g(x) = g(x) + f(x) \\
+(f(x) + g(x)) + h(x) = f(x) + (g(x) + h(x)) \\
+f(x) + 0 = f(x) \\
+f(x) + (-f(x)) = 0 \\
+f(x) \cdot g(x) = g(x) \cdot f(x)
+(f(x) \cdot g(x)) \cdot h(x) = f(x) \cdot (g(x) \cdot h(x)) \\
+f(x) \cdot 1 = f(x) \\
+f(x) \cdot (g(x) + h(x)) = f(x) \cdot g(x) + f(x) \cdot h(x)
+\end{aligned}
+\]</span></p>
+<h3 id="polynomfunktionen">Polynomfunktionen</h3>
+<p>Zu jedem Polynom <span class="math inline">\(f(x) = a_nx^n + ... + a_1x + a_0 \in \mathbb{R}[x]\)</span> gehört die Polynomfunktion <span class="math inline">\(f: \mathbb{R} \longrightarrow \mathbb{R}, c \longmapsto a_nc^n + ... + a_1c + a_0\)</span></p>
+<p><span class="math inline">\(f(c)\)</span>: Wert des Polynoms an der Stelle <span class="math inline">\(x = c\)</span></p>
+<p>Falls <span class="math inline">\(f(c) = 0\)</span>, so heißt <span class="math inline">\(c\)</span> <em>Nullstelle</em> von <span class="math inline">\(f(x)\)</span>.</p>
+<h3 id="zur-berechnung">Zur Berechnung</h3>
+<p><span class="math inline">\(a_nx^n + a_{n-1}x^{n-1} + ... + a_1x + a_0\)</span></p>
+<p><span class="math inline">\(= ((((a_nx + a_{n-1})x + a_{n-2})x + a_{n-3})x + ... + a_1)x + a_0\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(a_n\)</span></th>
+<th><span class="math inline">\(a_{n-1}\)</span></th>
+<th><span class="math inline">\(a_{n-2}\)</span></th>
+<th>…</th>
+<th><span class="math inline">\(a_1\)</span></th>
+<th><span class="math inline">\(a_0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td><span class="math inline">\(a_nc\)</span></td>
+<td><span class="math inline">\((a_nc + a_{n-1})c\)</span></td>
+<td>…</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(a_n\)</span></td>
+<td><span class="math inline">\(a_nc + a_{n-1}\)</span></td>
+<td><span class="math inline">\((a_nc + a_{n-1})c + a_{n-2}\)</span></td>
+<td>…</td>
+<td></td>
+<td><span class="math inline">\(f(c)\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="satz-von-der-division-mit-rest">Satz von der Division mit Rest</h3>
+<p>Es seien <span class="math inline">\(f(x), g(x) \in \mathbb{R}[x], \; g \not\equiv 0\)</span>.</p>
+<p>Dann existieren eindeutig bestimmte Polynome <span class="math inline">\(q(x), r(x) \in \mathbb{R}[x]\)</span> mit <span class="math inline">\(f(x) = q(x) \cdot g(x) + r(x)\)</span> und <span class="math inline">\(\text{Grad}(r(x)) &lt; \text{Grad}(g(x))\)</span></p>
+<h3 id="polynomdivision">Polynomdivision</h3>
+<p><span class="math inline">\((x^4 + 2x^3 + 6x^2 + 2x + 5) : (x^3 + 5x^2 + 11x + 15) = \overbrace{x - 3}^{q(x)}\)</span><br />
+<span class="math inline">\(-(x^4 + 5x^3 + 11x^2 + 15x)\)</span><br />
+<span class="math inline">\(\qquad \;-3x^3 -5x^2 -13x + 5\)</span><br />
+<span class="math inline">\(\qquad \; -(-3x^3 -15x^2 -33x -45)\)</span><br />
+<span class="math inline">\(\qquad \; \; r(x) = 10x^2 + 20x + 50\)</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+(x^3 + 5x^2 + 11x + 16):(x^2 + 2x + 5) = x + 3, r(x)=1 \\
+-(x^3 + 2x^2 + 5x) \\
+(3x^2 + 6x + 16) \\
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+(2x^4 - x^3 -7x^2 + 6x + 3):(x-2) = 2x^3 + 3x^2 - x + 4\\
+-(2x^4 - 4x^2) \\
+(3x^3 - 7x^2 + 6x + 3) \\
+-(3x^3 - 6x^2) \\
+-x^2 + 6x + 3 \\
+-(-x^2 + 2x) \\
+4x + 3 \\
+-(4x + 8) \\
+11
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+(x^2 + x - 1):(x - \frac{1}{2}) = x + \frac{3}{2}, \; \text{Rest } -\frac{1}{4}\\
+-(x^2 - \frac{1}{2}x) \\
+\frac{1}{2}x - 1 \\
+\end{aligned}
+\]</span></p>
+<blockquote>
+<p><strong>Definition</strong>: Ein Polynom <span class="math inline">\(g(x) \in \mathbb{R}[x], \; g(x) \not\equiv 0\)</span> heißt Teiler von <span class="math inline">\(f(x) \in \mathbb{R}[x]\)</span>, wenn es ein Polynom <span class="math inline">\(h(x) \in \mathbb{R}[x]\)</span>, sodass <span class="math inline">\(h(x) \cdot g(x) = f(x)\)</span>. <span class="math display">\[g(x)|f(x) \iff (\exists h(x) \in \mathbb{R}[x]) h(x) \cdot g(x) = f(x)\]</span> <strong>Gleichbedeutend</strong>: Der Rest <span class="math inline">\(r(x)\)</span> bei Division von <span class="math inline">\(f(x)\)</span> durch <span class="math inline">\(g(x)\)</span> ist <span class="math inline">\(r(x) \equiv 0\)</span>.</p>
+</blockquote>
+<p><span class="math inline">\(f(x) = q(x) \cdot (x - c) + r_0, \quad (r_0: \text{Konstante aus } \mathbb{R})\)</span></p>
+<p><span class="math inline">\(r_0 = 0 \implies f(x) = q(x) \cdot (x - c)\)</span><br />
+<span class="math inline">\(\implies (x - c) | f(x)\)</span><br />
+<span class="math inline">\(f(c) = q(c) \cdot \underbrace{(c - c)}_0 + \underbrace{r_0}_0 = 0\)</span><br />
+<span class="math inline">\(\implies \text{c ist Nullstelle von } f(x)\)</span></p>
+<p><span class="math inline">\(\implies 0 = f(c) = q(c) \cdot \underbrace{(c - c)}_0 + r_0\)</span><br />
+<span class="math inline">\(\implies 0 = r_0\)</span></p>
+<blockquote>
+<p><strong>Satz</strong>: <span class="math inline">\(c \in \mathbb{R}\)</span> ist genau dann Nullstelle von <span class="math inline">\(f(x) \in \mathbb{R}[x]\)</span>, wenn <span class="math inline">\((x - c) | f(x)\)</span> <span class="math display">\[ f(x) = 0 \iff (x - c) | f(x) \]</span> — <strong>Vielfachheit einer Nullstelle</strong>: Sei <span class="math inline">\(f(c)=0\)</span>. Dann folgt <span class="math inline">\((x - c) | f(x)\)</span>. Aber: Es ist möglich, dass <span class="math inline">\(f(x)\)</span> mehrfach durch <span class="math inline">\((x - c)\)</span> teilbar ist.</p>
+<p><span class="math inline">\(\text{Vielfachheit der Nullstelle} c := \max \{k \in \mathbb{N} | (x - c)^k|f(x) \}\)</span><br />
+<span class="math inline">\(\text{c Nullstelle} \implies k \geq 1, \quad k \leq \text{Grad}(f(x))\)</span></p>
+<p><span class="math inline">\(\implies \overbrace{c_1, ..., c_l}^{\text{paarweise verschieden}}\)</span> seien die Nullstellen von <span class="math inline">\(f(x)\)</span> mit <span class="math inline">\(\text{Grad}(f(x)) = n \geq 1\)</span>. <span class="math inline">\(k_1, ..., k_l\)</span> seien die zugehörigen Vielfachheiten. Dann folgt <span class="math inline">\(f(x) = (x - c_1)^{k_1} \cdot (x - c_2)^{k_2} \cdot ... \cdot (x - c_l)^{k_l} \cdot f_0(x)\)</span>, wobei <span class="math inline">\(f_0(x)\)</span> keine Nullstellen in <span class="math inline">\(\mathbb{R}\)</span> hat.<br />
+<span class="math inline">\(\implies k_1 + k_2 + ... + k_l \leq n\)</span><br />
+Ein Polynom n-ten Grades kann in <span class="math inline">\(\mathbb{R}\)</span> höchstens n Nullstellen haben, wobei die Nullstellen mit ihren Vielfachheiten gezählt werden.</p>
+</blockquote>
+<p>Sei <span class="math inline">\(g(x) \in \mathbb{R}[x]\)</span>. Dann heißt <span class="math inline">\(g(x)\)</span> ein <em>Primpolynom</em> (oder irreduzibel), wenn</p>
+<ul>
+<li><span class="math inline">\(n = \text{Grad}(g(x)) \geq 1\)</span></li>
+<li><span class="math inline">\((\forall h(x) \in \mathbb{R}[x]) \quad h(x)|g(x) \implies \text{Grad}(h(x)) \in \{0, n \}\)</span></li>
+</ul>
+<p><strong>Gilt</strong>: Jedes Polynom <span class="math inline">\(f(x)\)</span> mit <span class="math inline">\(\text{Grad(f(x))} \geq 1\)</span> hat eine Darstellung als Produkt von Primpolynomen.</p>
+<h3 id="primpolynome-aus-mathbbrx">Primpolynome aus <span class="math inline">\(\mathbb{R}[x]\)</span></h3>
+<ul>
+<li>Polynome vom Grad 1</li>
+<li>Polynome vom Grad 2, die keine Nullstellen in <span class="math inline">\(\mathbb{R}\)</span> haben</li>
+</ul>
+<h3 id="nullstellen-von-polynomen-vom-grad-geq-1">Nullstellen von Polynomen vom Grad <span class="math inline">\(\geq 1\)</span></h3>
+<p><span class="math inline">\(n = 1, \quad f(x) = a_1x + a_0 \text{ mit } a_1 \neq 0\)</span><br />
+<span class="math inline">\(a_1x + a_0 = 0 \iff x = -\frac{a_0}{a_1}\)</span></p>
+<p><span class="math inline">\(n = 2, \quad f(x) = a_2x^2 + a_1x + a_0 \text{ mit } a_2 \neq 0\)</span><br />
+<span class="math inline">\(x^2 + px + q = 0 \text{ mit } p = \frac{a_1}{a_2}, \; q = \frac{a_0}{a_2}\)</span><br />
+<span class="math inline">\(x_1, x_2 = -\frac{p}{2} \pm \sqrt{(\frac{p}{2})^2 - q}\)</span></p>
+<h4 id="aufgabe-nullstellen-von-polynomen-zweiten-grades">Aufgabe: Nullstellen von Polynomen zweiten Grades</h4>
+<p><span class="math inline">\(4x^2 + 4x - 3 =\)</span></p>
+<p><span class="math inline">\(x^2 + x - \frac{3}{4} = 0 \implies x_1, x_2 = -\frac{1}{2} \pm \sqrt{\frac{1}{4} + \frac{3}{4}} \implies x_1 = \frac{1}{2}, x_2 = -\frac{3}{2}\)</span></p>
+<p><span class="math inline">\(3x^2 - x - 10 =\)</span></p>
+<p><span class="math inline">\(x^2 -\frac{1}{3}x - \frac{10}{3} = 0 \implies x_1, x_2 = \frac{1}{3} \pm \sqrt{\frac{1}{9} + \frac{30}{9}} \implies x_1 = 2, x_2 = -\frac{5}{3}\)</span></p>
+<p>Sei <span class="math inline">\(a_2 = 1, \quad f(x) = (x + \frac{p}{2})^2 + q - (\frac{p}{2})^2\)</span></p>
+<figure>
+<img src="parabola.png" alt="parabola.png" /><figcaption>parabola.png</figcaption>
+</figure>
+<table>
+<thead>
+<tr class="header">
+<th>Fall</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(a_2 &gt; 1\)</span></td>
+<td>Parabel gestreckt (Nullstellen bleiben)</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(0 &lt; a_2 &lt; 1\)</span></td>
+<td>Parabel gestaucht (Nullstellen bleiben)</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(a_2 &lt; 0\)</span></td>
+<td>Spiegelung der Parabel an der x-Achse</td>
+</tr>
+</tbody>
+</table>
+<h4 id="fall-n3">Fall <span class="math inline">\(n=3\)</span></h4>
+<p><span class="math inline">\(f(x) = a_3x^3 + a_2x^2 + a_1x + a_0\)</span></p>
+<p><span class="math inline">\(f(x) = 0 \xrightarrow{\text{Substitution}} z^3 + pz + q = 0\)</span></p>
+<p>Substitution: <span class="math inline">\(z = u + w\)</span></p>
+<p><span class="math inline">\((u+w)^3 + p(u+w) + q = 0\)</span><br />
+<span class="math inline">\(u^3 + 3u^2w + 3uw^2 + w^3 + p(u + w) + q = 0\)</span><br />
+<span class="math inline">\(\underbrace{(u^3+w^3+q)}_0 + \underbrace{(3uw + p)}_{0}(u + w) = 0\)</span></p>
+<blockquote>
+<p><strong>Satz</strong>: Sei <span class="math inline">\(f(x) = \sum_{i=0}^n a_ix^i\)</span> mit <span class="math inline">\(a_n \neq 0\)</span> und <span class="math inline">\(a_i \in \mathbb{Z}\)</span> für <span class="math inline">\(i = 0..n\)</span>. Weiter sei <span class="math inline">\(\frac{p}{q}\)</span> eine vollständig gekürzte, rationale Nullstelle mit <span class="math inline">\(p, q \in \mathbb{Z}, \; q \geq 1, \; \text{ggT}(p, q) = 1\)</span>. Dann gilt <span class="math inline">\(p|a_0\)</span> und <span class="math inline">\(q|a_0\)</span>. Falls <span class="math inline">\(a_n = 1\)</span>, dann ist <span class="math inline">\(q=1\)</span>. Jede rationale Nullstelle ist dann ganzzahlig.</p>
+</blockquote>
+<h4 id="fall-n4">Fall <span class="math inline">\(n=4\)</span></h4>
+<p>Da gibt’s Formeln für. Angeblich.</p>
+<h4 id="fall-n5">Fall <span class="math inline">\(n=5\)</span></h4>
+<p>Da gibt’s keine allgemeine Formel für. Und dabei hat man schon ewig gesucht. Galois hat die Suche für unsinnig erklärt und ist dann mit 20 oder so in einem Duell gestorben.</p>
+<blockquote>
+<p>“Wie kann man sich nur so jung erschießen lassen?” - Dr. Börner über Galois</p>
+</blockquote>
+<h2 id="lösen-von-gleichungen-und-ungleichungen">Lösen von Gleichungen und Ungleichungen</h2>
+<blockquote>
+<p><strong>Terme</strong>: Ein (Funktions-)Term ist ein “vernünftig aufgebauter” Ausdruck zur Beschreibung einer Funktion. Terme können aus folgenden Dingen bestehen:</p>
+<ul>
+<li>Zeichen für Variablen und Parameter</li>
+<li>Zahlen, Konstanten</li>
+<li>Grundoperationen</li>
+<li>Funktionszeichen</li>
+<li>Technische Zeichen</li>
+</ul>
+<p>Meist bezeichnen wir Terme mit <span class="math inline">\(f(x), g(x)...\)</span> wie Funktionen, <em>aber</em>:</p>
+<ul>
+<li>Jeder Term definiert <strong>eine</strong> Funktion</li>
+<li>Eine Funktion kann durch <strong>verschiedene</strong> Terme beschrieben werden</li>
+</ul>
+</blockquote>
+<p>Zu einem Term <span class="math inline">\(f(x)\)</span> gehört ein <strong>maximaler Definitionsbereich</strong>. Das ist die größte Teilmenge von <span class="math inline">\(\mathbb{R}\)</span>, für die alle Teilterme von <span class="math inline">\(f(x)\)</span> definiert sind. Den Definitionsbereich von <span class="math inline">\(f(x)\)</span> bezeichnen wir mit <span class="math inline">\(D_f\)</span>. Dieser kann eventuell eingeschränkt werden. Damit definiert ein Term <span class="math inline">\(f(x)\)</span> eine Funktion <span class="math inline">\(f(x)\)</span>.</p>
+<p><span class="math display">\[f: D_f \longrightarrow \mathbb{R}, x \longmapsto f(x)\]</span></p>
+<h3 id="umformungen-von-termen">Umformungen von Termen</h3>
+<p>Termumformungen müssen die zugehörige Funktion unverändert lassen, einschließlich <span class="math inline">\(D_f\)</span>. Gegebenenfalls müssen Änderungen separat angegeben werden.</p>
+<p><strong>Beispiel</strong>: <span class="math inline">\(f(x) = \frac{x^2-x-6}{x+2}, \; D_f = \mathbb{R}\setminus\{-2\}\)</span></p>
+<p><span class="math inline">\(f(x) = \frac{(x+2)(x-3)}{(x+2)} = x - 3 \underline{\text{ mit } x \neq -2}\)</span></p>
+<h2 id="gleichungen">Gleichungen</h2>
+<p><span class="math inline">\(f(x), g(x)\)</span> Funktionsterme.</p>
+<p><strong>Gleichung</strong>: <span class="math inline">\(f(x) = g(x)\)</span></p>
+<p>Lösungsmenge <span class="math inline">\(L = \{x \in D_f \cup D_g | f(x) = g(x) \}\)</span></p>
+<p>Sei <span class="math inline">\(\tilde{f}(x) = \tilde{g}(x)\)</span> eine weitere Gleichung mit <span class="math inline">\(\tilde{L} = \{x \in D_{\tilde{f}} \cup D_{\tilde{g}} | \tilde{f}(x) = \tilde{g}(x) \}\)</span></p>
+<blockquote>
+<p>Die Gleichungen <span class="math inline">\(f(x)=g(x)\)</span> und <span class="math inline">\(\tilde{f}(x)=\tilde{g}(x)\)</span> heißen äquivalent, falls <span class="math inline">\(L = \tilde{L}\)</span>, man schreibt <span class="math inline">\(f(x)=g(x) \iff \tilde{f}(x) = \tilde{g}(x)\)</span>.</p>
+</blockquote>
+<p>Bei <strong>äquivalenten Umformungen</strong> ändert sich die Lösungsmenge nicht. Manchmal betrachtet man auch nichtäquivalente Umformungen.</p>
+<p><strong>Folgerungen</strong>: <span class="math inline">\(f(x) = g(x) \implies \tilde{f}(x) = \tilde{g}(x) \text{ falls } L \subseteq \tilde{L}\)</span></p>
+<h3 id="lineare-gleichungen">Lineare Gleichungen</h3>
+<p><span class="math inline">\(ax + b = 0\)</span></p>
+<h4 id="fall-1">Fall 1</h4>
+<p><span class="math inline">\(a = 0 \implies ax + b = b \implies b = 0\)</span></p>
+<p><strong>Fall 1A</strong>: <span class="math inline">\(b \neq 0 \implies L = \emptyset\)</span></p>
+<p><strong>Fall 1B</strong>: <span class="math inline">\(b = 0 \implies L = \mathbb{R}\)</span></p>
+<h3 id="gleichungen-mit-beträgen">Gleichungen mit Beträgen</h3>
+<p><span class="math inline">\(|a| := \begin{cases} a \text{ falls } a \geq 0 \\ -a \text{ falls } a &lt; 0\end{cases}\)</span></p>
+<p><span class="math inline">\(|a| = \sqrt{a^2}\)</span></p>
+<p><span class="math inline">\(|a| \geq 0, |a| = 0 \iff a = 0\)</span></p>
+<p><span class="math inline">\(|a \cdot b| = |a| \cdot |b|, \quad |\frac{a}{b}| = \frac{|a|}{|b|}, \quad (b \neq 0)\)</span></p>
+<ul>
+<li><span class="math inline">\(|f(x)| = c\)</span></li>
+<li>Falls <span class="math inline">\(c &lt; 0\)</span>, so <span class="math inline">\(L = \emptyset\)</span></li>
+<li>Falls <span class="math inline">\(c \geq 0\)</span>, so <span class="math inline">\(|f(x)|=c \iff f(x)=c \lor f(x)= -c\)</span></li>
+</ul>
+<p><span class="math inline">\(|f(x)| = |g(x)| \iff f(x)^2 = g(x)^2\)</span></p>
+<p>Falls <span class="math inline">\(g(x) \neq 0 \quad |f(x)|=|g(x)| \iff |\frac{f(x)}{g(x)}| = 1\)</span></p>
+</body>
+</html>
