@@ -31,6 +31,18 @@ def draw_function(interval=[-10, 10], f = lambda x: x, title_="", accuracy = 0.0
     ax.grid()
     fig.savefig(fn, facecolor=fig.get_facecolor(), transparent=True)
 
+def draw_multiple(interval=[-10, 10], f = [lambda x: x], title_="", accuracy = 0.01, fn="fig.png"):
+    t = np.arange(*interval, accuracy)
+    fig, ax = plt.subplots()
+    ax.set_facecolor("#222222")
+    fig.patch.set_facecolor("#222222")
+    for fun in f:
+        ax.plot(t, [fun(x) for x in t])
+    ax.set(xlabel="x", ylabel="y")
+    ax.set_title(title_, color="#1d9ce5")
+    ax.grid()
+    fig.savefig(fn, facecolor=fig.get_facecolor(), transparent=True)
+
 def table(rows):
     print("| " + " | ".join(rows[0]) + " |")
     print("| - " * len(rows[0]) + " |")

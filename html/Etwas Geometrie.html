@@ -21,7 +21,7 @@
 </head>
 <body>
 <h1 id="etwas-geometrie">Etwas Geometrie</h1>
-<h2 id="eukildische-geometrie">Eukildische Geometrie</h2>
+<h2 id="euklidische-geometrie">Euklidische Geometrie</h2>
 <p><strong>Euklid (ca. 300 v.Chr.)</strong>: Axiomatisierung der Geometrie</p>
 <p><span class="math inline">\(\mathcal{E}\)</span>: Ebene, Menge von Punkten <span class="math inline">\(A, B, C.. \in \mathcal{E}\)</span></p>
 <p><span class="math inline">\(\mathcal{G}\)</span>: Menge der Geraden <span class="math inline">\(g, h \subseteq \mathcal{E}\)</span>, <span class="math inline">\(\mathcal{G} \subseteq \mathcal{P}(\mathcal{E})\)</span></p>
@@ -76,7 +76,7 @@
 <h3 id="bogenmaß">Bogenmaß</h3>
 <p>Ein Kreisbogen um einen Winkel hat bei einem Radius <span class="math inline">\(r\)</span> eine bestimmte Länge <span class="math inline">\(l(r)\)</span>. Das Bogenmaß ist <span class="math inline">\(\frac{l(r)}{r}\)</span>, oder die Kreisbogenlänge im Einheitskreis.</p>
 <h3 id="gradmaß">Gradmaß</h3>
-<p><span class="math inline">\(1^o = \frac{\pi}{180}\)</span></p>
+<p><span class="math inline">\(1^\circ = \frac{\pi}{180}\)</span></p>
 <h3 id="orientierung">Orientierung</h3>
 <p>Mathematisch positiv ist die Drehung <em>gegen</em> den Uhrzeigersinn.</p>
 <h2 id="dreieck">DREIECK</h2>
@@ -103,5 +103,53 @@
 </tr>
 </tbody>
 </table>
+<h2 id="analytische-geometrie">Analytische Geometrie</h2>
+<p>René Descartes (“Carthesius”): 1596 - 1650</p>
+<p><strong>Modell</strong>: <span class="math inline">\(\mathcal{E} = \mathbb{R} \times \mathbb{R}\)</span></p>
+<p>Punkt: <span class="math inline">\(A(a_1, a_2), \; a_1, a_2 \in \mathbb{R}\)</span></p>
+<p>Abstand <span class="math inline">\(d(A, B) = \sqrt{\sum_{i=0}^n(a_i-b_i)^2}\)</span></p>
+<p>Geraden: <span class="math inline">\(a_1, a_2, c \in \mathbb{R}, \; a_1+a_2 \neq 0\)</span></p>
+<p><span class="math inline">\(g_{a_1, a_2, c} = \{(x_1, x_2) | a_1x_1 + a_2x_2 = c\}\)</span></p>
+<p>Sei <span class="math inline">\((x_1, x_2)\)</span> ein Punkt auf dem Einheitskreis mit <span class="math inline">\(\alpha\)</span> als Winkel zur <span class="math inline">\(x_1\)</span>-Achse. Dann ist</p>
+<p><span class="math inline">\(\sin{\alpha} := x_2\)</span><br />
+<span class="math inline">\(\cos{\alpha} := x_1\)</span><br />
+<span class="math inline">\(\tan{\alpha} := \frac{\sin{\alpha}}{\cos{\alpha}}\)</span><br />
+<span class="math inline">\(\cot{\alpha} := \tan^{-1}\alpha\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th>Quadrant</th>
+<th><span class="math inline">\(\cos{\alpha}\)</span></th>
+<th><span class="math inline">\(\sin{\alpha}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>I</td>
+<td>+</td>
+<td>+</td>
+</tr>
+<tr class="even">
+<td>II</td>
+<td>-</td>
+<td>+</td>
+</tr>
+<tr class="odd">
+<td>III</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>IV</td>
+<td>+</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<figure>
+<img src="sin.png" alt="sin(x)" /><figcaption>sin(x)</figcaption>
+</figure>
+<p><span class="math inline">\(\overbrace{\sin{-x} = -\sin{x}}^{\text{ungerade Funktion}}, \; \overbrace{\cos{-x} = \cos{x}}^{\text{gerade Funktion}}\)</span></p>
+<p>Trigonometrischer Pythagoras: <span class="math inline">\((\cos{x})^2 + (\sin{x})^2 = 1\)</span></p>
 </body>
 </html>

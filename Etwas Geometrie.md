@@ -1,6 +1,6 @@
 # Etwas Geometrie
 
-## Eukildische Geometrie
+## Euklidische Geometrie
 
 **Euklid (ca. 300 v.Chr.)**: Axiomatisierung der Geometrie
 
@@ -74,7 +74,7 @@ Ein Kreisbogen um einen Winkel hat bei einem Radius $r$ eine bestimmte Länge $l
 
 ### Gradmaß
 
-$1^o = \frac{\pi}{180}$
+$1^\circ = \frac{\pi}{180}$
 
 ### Orientierung
 
@@ -95,3 +95,37 @@ import plots
 
 plots.table([("Kongruenzsaetze", ), ("SWS", ), ("SSS", ), ("WSW", ), ("SSW (mit Einschraenkung)", )])
 ```
+
+## Analytische Geometrie
+
+René Descartes ("Carthesius"): 1596 - 1650
+
+**Modell**: $\mathcal{E} = \mathbb{R} \times \mathbb{R}$
+
+Punkt: $A(a_1, a_2), \; a_1, a_2 \in \mathbb{R}$
+
+Abstand $d(A, B) = \sqrt{\sum_{i=0}^n(a_i-b_i)^2}$
+
+Geraden: $a_1, a_2, c \in \mathbb{R}, \; a_1+a_2 \neq 0$
+
+$g_{a_1, a_2, c} = \{(x_1, x_2) | a_1x_1 + a_2x_2 = c\}$
+
+Sei $(x_1, x_2)$ ein Punkt auf dem Einheitskreis mit $\alpha$ als Winkel zur $x_1$-Achse. Dann ist
+
+$\sin{\alpha} := x_2$\
+$\cos{\alpha} := x_1$\
+$\tan{\alpha} := \frac{\sin{\alpha}}{\cos{\alpha}}$\
+$\cot{\alpha} := \tan^{-1}\alpha$
+
+```python-exec
+import plots, math
+
+plots.table((("Quadrant", "$\\cos{\\alpha}$", "$\\sin{\\alpha}$"), ("I", "+", "+"), ("II", "-", "+"), ("III", "-", "-"), ("IV", "+", "-")))
+print()
+plots.draw_multiple(f=(math.sin, math.cos), fn="./html/sin.png")
+print("![sin(x)](sin.png)")
+```
+
+$\overbrace{\sin{-x} = -\sin{x}}^{\text{ungerade Funktion}}, \; \overbrace{\cos{-x} = \cos{x}}^{\text{gerade Funktion}}$
+
+Trigonometrischer Pythagoras: $(\cos{x})^2 + (\sin{x})^2 = 1$
