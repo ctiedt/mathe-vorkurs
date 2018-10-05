@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Grundbegriffe der reellen Analysis</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="https://notes.zortax.de/css/retro.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/contrib/auto-render.min.js"></script><script>document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body);
+  });</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.8.3/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="einige-grundbegriffe-der-rellen-analysis">Einige Grundbegriffe der rellen Analysis</h1>
+<h2 id="grenzwerte-von-folgen">Grenzwerte von Folgen</h2>
+<p>Eine Folge ist eine Funktion von den natürlichen auf die reellen Zahlen.</p>
+<p><span class="math inline">\(a: \mathbb{N} \to \mathbb{R}\)</span></p>
+<p><span class="math inline">\((a_n)_{n \in \mathbb{N}}\)</span></p>
+<p><span class="math inline">\((\frac{1}{n})_{n \in \mathbb{N}}\)</span></p>
+<blockquote>
+<p><strong>Def.:</strong> Es sei <span class="math inline">\((a_n)_{n \in \mathbb{N}}\)</span> eine Folge und <span class="math inline">\(g \in \mathbb{R}\)</span>. Dann heißt g Grenzwert <span class="math inline">\(\lim_{n \to \infty}{a_n}=g\)</span>, wenn <span class="math inline">\((\forall \epsilon &gt; 0)(\exists n_0 \in \mathbb{N})(\forall n \in \mathbb{N})(n \geq n_0 \implies |a_n-g| &lt; \epsilon)\)</span> Falls solch ein g existiert, heißt <span class="math inline">\((a_n)_{n \in \mathbb{N}}\)</span> <em>konvergent</em>, sonst <em>divergent</em>. — “Walter ist gut für Analysis. Aber den Vornamen weiß ich nicht mehr. Wolfgang oder so.” - ungefähr Dr. Börner — <strong>Satz</strong>: Wenn <span class="math inline">\((a_n)_{n \in \mathbb{N}}\)</span> konvergiert, ist der Grenzwert eindeutig bestimmt.<br />
+</p>
+<p>Jede konvergente Folge ist beschränkt.<br />
+</p>
+<p>Jede monoton wachsende (<span class="math inline">\(a_n \leq a_m\)</span>), nach oben beschränkte Folge ist konvergent mit <span class="math inline">\(lim_{n \to \infty}a_n = \sup\{a_n|n \in \mathbb{N}\}\)</span><br />
+</p>
+<p>Cauchy-Folge <span class="math inline">\(:\iff (\forall \epsilon &gt; 0)(\exists n_0)(n, m \in \mathbb{N})(n, m \geq n_0 \implies |a_n - a_m| &lt; \epsilon)\)</span><br />
+</p>
+<h2 id="wenn-a_n-beschränkt-ist-kann-man-aus-a_n-eine-konvergente-teilfolge-auswählen.">Wenn <span class="math inline">\((a_n)\)</span> beschränkt ist, kann man aus <span class="math inline">\(a_n\)</span> eine konvergente Teilfolge auswählen.</h2>
+</blockquote>
+<h3 id="grenzwertsätze">Grenzwertsätze</h3>
+<p>Sei <span class="math inline">\(\lim_{n \to \infty}a_n=g_a, \lim_{n \to \infty}b_n=g_b\)</span>. Dann sind auch diese Folgen konvergent: <span class="math inline">\((\forall \alpha, \beta \in \mathbb{R})\)</span></p>
+<ul>
+<li><span class="math inline">\(\lim_{n \to \infty}(\alpha a_n + \beta b_n)=\alpha g_a + \beta g_b\)</span></li>
+<li><span class="math inline">\(\lim_{n \to \infty}(a_n \cdot b_n)=g_a \cdot g_b\)</span></li>
+<li><span class="math inline">\(\lim_{n \to \infty} \frac{a_n}{b_n}=\frac{g_a}{g_b}\)</span> falls <span class="math inline">\((\forall n \in \mathbb{N}) b_n \neq 0 \land g_b \neq 0\)</span></li>
+</ul>
+<p>Eine Folge <span class="math inline">\((a_n)\)</span> heißt <em>bestimmt divergent</em> gegen <span class="math inline">\(\infty\)</span>, <span class="math inline">\(\lim_{n \to \infty}a_n=\infty\)</span>, wenn <span class="math inline">\((\forall s \in \mathbb{R})(\exists n_0)(\forall n \geq n_0) a_n &gt; s\)</span></p>
+</body>
+</html>

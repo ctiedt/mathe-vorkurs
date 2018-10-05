@@ -132,3 +132,18 @@ $\cot{\alpha} := \tan^{-1}\alpha$
 $\overbrace{\sin{-x} = -\sin{x}}^{\text{ungerade Funktion}}, \; \overbrace{\cos{-x} = \cos{x}}^{\text{gerade Funktion}}$
 
 Trigonometrischer Pythagoras: $(\cos{x})^2 + (\sin{x})^2 = 1$
+
+Sinussatz: $b \cdot \sin{\alpha} = a \cdot \sin{\beta} \implies \frac{\sin{\alpha}}{a} = \frac{\sin{\beta}}{b} = \frac{\sin{\gamma}}{c}$
+
+### Arcusfunktionen
+
+$\sin: \mathbb{R} \to [-1, 1]$ surjektiv, nicht injektiv
+
+$\sin: \overbrace{[-\frac{\pi}{2}, +\frac{\pi}{2}]}^{\text{Hauptwerte}} \to [-1, 1]$
+
+$\sin^{-1} = \arcsin: [-1, 1] \to [-\frac{\pi}{2}, +\frac{\pi}{2}]$
+
+| $\alpha (Grad)$ | $\alpha$ (Bogenmass) | cos | sin |
+| - | - | - | -  |
+| 0 | 0 | 1 | 0 |
+| 30 | \pi/6 | \sqrt{3/2} | 1/2 |
